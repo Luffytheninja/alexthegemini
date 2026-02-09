@@ -3,30 +3,48 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 18, 16, 14;
-  /* Warm Deep Charcoal #12100E */
-  --background-start-rgb: 253, 252, 240;
-  /* Cream #FDFCF0 */
-  --background-end-rgb: 255, 251, 242;
+  --foreground-rgb: 34, 34, 34;
+  /* Airbnb Deep Charcoal #222222 */
+  --background-start-rgb: 255, 251, 251;
+  /* Soft Warm White */
+  --background-end-rgb: 255, 255, 255;
   --accent-coral: #FF5A5F;
-  --accent-muted: #12100E20;
+  /* Airbnb Coral */
+  --accent-muted: #22222208;
+  --card-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  --card-radius: 2rem;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-start-rgb));
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
 @layer components {
+  .airbnb-card {
+    background-color: white;
+    border-radius: 2rem;
+    border: 1px solid rgba(34, 34, 34, 0.06);
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .airbnb-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  }
+
   .kinetic-text {
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: -0.05em;
-    font-size: clamp(3rem, 10vw, 12rem);
-    line-height: 0.85;
+    letter-spacing: -0.02em;
+    font-size: clamp(2.5rem, 8vw, 10rem);
+    line-height: 0.9;
+    color: #222222;
   }
 }
 

@@ -30,14 +30,14 @@ export default function SocialLinks() {
     ];
 
     return (
-        <div className="flex gap-8 mt-8">
+        <div className="flex gap-8">
             {links.map((link) => (
                 <Link
                     key={link.name}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`text-white/60 transition-colors ${link.color}`}
+                    className="text-[#222222]/40 hover:text-[#FF5A5F] transition-colors"
                     aria-label={link.name}
                 >
                     {link.icon}
