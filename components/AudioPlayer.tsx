@@ -48,30 +48,31 @@ export default function AudioPlayer() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-[#12100E]/95 backdrop-blur-xl"
                         onClick={handleInteraction}
                     >
                         <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="px-8 py-4 bg-white text-black font-bold text-xl uppercase tracking-widest rounded-full flex items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+                            whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(255, 90, 95, 0.2)" }}
+                            whileTap={{ scale: 0.98 }}
+                            className="px-10 py-5 bg-[#FF5A5F] text-[#FDFCF0] font-bold text-xl uppercase tracking-[0.2em] rounded-full flex items-center gap-4 transition-shadow shadow-xl shadow-coral/10"
                         >
-                            <Play className="w-6 h-6 fill-black" />
-                            Enter Experience
+                            <Play className="w-6 h-6 fill-[#FDFCF0]" />
+                            Enter Space
                         </motion.button>
                     </motion.div>
                 )}
             </AnimatePresence>
 
-            <div className="fixed bottom-6 right-6 z-40">
+            <div className="fixed bottom-8 right-8 z-40">
                 {hasInteracted && (
                     <motion.button
                         initial={{ scale: 0, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
+                        transition={{ type: "spring", damping: 20, stiffness: 100 }}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={toggleMute}
-                        className="p-3 bg-black/50 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/10 transition-colors"
+                        className="p-4 bg-[#FF5A5F]/10 backdrop-blur-lg border border-[#FF5A5F]/20 rounded-full text-[#FF5A5F] hover:bg-[#FF5A5F]/20 transition-all shadow-lg"
                     >
                         {isMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
                     </motion.button>

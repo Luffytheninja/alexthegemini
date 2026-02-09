@@ -24,24 +24,24 @@ export default function Home() {
       variants={containerVariants}
       initial="hidden"
       animate="show"
-      className="flex-1 flex flex-col items-center justify-center p-8 md:p-24 space-y-16 text-center"
+      className="flex-1 flex flex-col items-center justify-center p-8 md:p-32 space-y-24 text-center max-w-7xl mx-auto"
     >
 
       {/* Hero Section */}
-      <motion.section variants={itemVariants} className="space-y-6 max-w-4xl mx-auto">
-        <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40">
+      <motion.section variants={itemVariants} className="space-y-8 max-w-5xl mx-auto pt-12">
+        <h1 className="text-7xl md:text-[10rem] font-black tracking-[-0.04em] leading-[0.9] uppercase text-[#FDFCF0] drop-shadow-sm">
           Alex<br className="md:hidden" />the<br className="md:hidden" />gemini
         </h1>
-        <p className="text-xl md:text-2xl font-light tracking-wide text-white/50">
+        <p className="text-xl md:text-3xl font-medium tracking-tight text-[#FF5A5F] opacity-90 italic">
           Alternative Afrobeat & Visual Artist
         </p>
       </motion.section>
 
       {/* Featured Track */}
-      <motion.section variants={itemVariants} className="w-full max-w-md mx-auto space-y-8">
-        <div className="rounded-xl overflow-hidden shadow-2xl border border-white/10 relative group">
+      <motion.section variants={itemVariants} className="w-full max-w-2xl mx-auto px-4">
+        <div className="rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[#D4CFC3]/10 bg-[#12100E] p-1 scale-100 hover:scale-[1.02] transition-transform duration-500">
           <iframe
-            style={{ borderRadius: "12px" }}
+            style={{ borderRadius: "20px" }}
             src="https://open.spotify.com/embed/artist/3Wbkuzl1Ha7fBw77p15Lzw?utm_source=generator&theme=0"
             width="100%"
             height="352"
@@ -54,31 +54,37 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Social Links */}
-      <motion.section variants={itemVariants}>
-        <h3 className="text-sm font-bold uppercase tracking-widest text-white/30 mb-4">Connect</h3>
+      {/* Social Links Section */}
+      <motion.section variants={itemVariants} className="space-y-4">
+        <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-[#D4CFC3]/40">Connect</h3>
         <SocialLinks />
       </motion.section>
 
       {/* Mailing List */}
-      <motion.section variants={itemVariants} className="w-full max-w-sm mx-auto space-y-4 pt-12 border-t border-white/5">
-        <p className="text-sm text-center text-white/60">
-          Join the inner circle. New releases & visual drops.
-        </p>
-        <form className="flex gap-2" action="#" onSubmit={(e) => e.preventDefault()}>
+      <motion.section
+        variants={itemVariants}
+        className="w-full max-w-lg mx-auto space-y-8 pt-20 border-t border-[#D4CFC3]/5"
+      >
+        <div className="space-y-3">
+          <h2 className="text-3xl font-bold text-[#FDFCF0] tracking-tight">Stay in the loop</h2>
+          <p className="text-lg text-[#D4CFC3]/60 max-w-md mx-auto">
+            Get the first look at new visual drops and secret releases.
+          </p>
+        </div>
+        <form className="flex flex-col md:flex-row gap-4 px-4" action="#" onSubmit={(e) => e.preventDefault()}>
           <input
             type="email"
-            placeholder="yo@example.com"
-            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/40 transition-colors"
+            placeholder="yo@alex.xyz"
+            className="flex-1 bg-[#FDFCF0]/5 border border-[#D4CFC3]/10 rounded-2xl px-6 py-4 text-base focus:outline-none focus:border-[#FF5A5F]/40 transition-all placeholder:text-[#D4CFC3]/20"
           />
-          <button className="bg-white text-black font-bold px-6 py-3 rounded-lg text-sm hover:bg-white/90 transition-colors">
+          <button className="bg-[#FF5A5F] text-[#FDFCF0] font-bold px-8 py-4 rounded-2xl text-base hover:bg-[#FF5A5F]/90 transition-all shadow-lg shadow-coral/20">
             JOIN
           </button>
         </form>
       </motion.section>
 
-      <motion.footer variants={itemVariants} className="pt-24 pb-8 text-xs text-white/20">
-        &copy; {new Date().getFullYear()} Alexthegemini. All Rights Reserved.
+      <motion.footer variants={itemVariants} className="pt-32 pb-12 text-xs tracking-widest text-[#D4CFC3]/30 uppercase font-medium">
+        &copy; {new Date().getFullYear()} Alexthegemini &bull; Visual Artist &bull; Nigeria
       </motion.footer>
     </motion.div>
   );
