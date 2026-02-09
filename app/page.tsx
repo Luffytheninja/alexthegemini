@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import SocialLinks from "@/components/SocialLinks";
 import ArtistPlayer from "@/components/ArtistPlayer";
+import Navbar from "@/components/Navbar";
 import { Star, MapPin, Share, Heart, Play } from "lucide-react";
 
 export default function Home() {
@@ -16,24 +17,7 @@ export default function Home() {
   return (
     <div className="relative w-full min-h-screen bg-[#FFFBFB] text-[#222222] selection:bg-[#FF5A5F] selection:text-white">
 
-      {/* Navigation Bar (Airbnb Style) */}
-      <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-[#222222]/5 px-6 md:px-12 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-[#FF5A5F] rounded-lg flex items-center justify-center text-white font-black text-xs">A</div>
-          <span className="font-bold tracking-tight text-xl">Alexthegemini</span>
-        </div>
-        <div className="hidden md:flex items-center gap-8 text-sm font-semibold">
-          <a href="#projects" className="hover:text-[#FF5A5F] transition-colors">Projects</a>
-          <a href="#player" className="hover:text-[#FF5A5F] transition-colors">Listen</a>
-          <a href="#contact" className="hover:text-[#FF5A5F] transition-colors">Contact</a>
-        </div>
-        <button
-          onClick={() => window.open('https://open.spotify.com/artist/3Wbkuzl1Ha7fBw77p15Lzw', '_blank')}
-          className="px-6 py-2.5 bg-[#FF5A5F] text-white text-sm font-bold rounded-full hover:shadow-lg transition-all active:scale-95"
-        >
-          Stream Now
-        </button>
-      </nav>
+      <Navbar />
 
       <main className="max-w-7xl mx-auto px-6 md:px-12 py-8 space-y-16">
 
@@ -61,7 +45,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Hero Gallery (Airbnb Style) - NO VIDEOS */}
+        {/* Hero Gallery */}
         <section className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 h-[60vh] gap-3 rounded-[2rem] overflow-hidden">
           <div className="md:col-span-2 md:row-span-2 relative group overflow-hidden bg-[#222222]/5">
             <img
@@ -97,7 +81,7 @@ export default function Home() {
               alt="Visual 4"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
-            <button className="absolute bottom-6 right-6 px-4 py-2 bg-white border border-[#222222] rounded-lg text-sm font-bold shadow-sm hover:bg-[#F7F7F7] transition-all">
+            <button className="absolute bottom-6 right-6 glass-button !text-sm">
               Show all photos
             </button>
           </div>
@@ -121,10 +105,10 @@ export default function Home() {
             {/* Features */}
             <div className="space-y-8">
               <div className="flex gap-6">
-                <div className="pt-1"><Star size={24} /></div>
+                <div className="pt-1 text-[#FF5A5F]"><Star size={24} fill="currentColor" /></div>
                 <div>
                   <h4 className="font-bold">Highly Rated</h4>
-                  <p className="text-[#222222]/60">Alexthegemini has consistent 5-star reviews on all collaborative projects.</p>
+                  <p className="text-[#222222]/60">Alexthegemini is consistently recognized for experimental excellence.</p>
                 </div>
               </div>
               <div className="flex gap-6">
@@ -138,11 +122,11 @@ export default function Home() {
 
             <div className="pt-8 border-t border-[#222222]/10">
               <p className="text-lg leading-relaxed text-[#222222]/80">
-                Alexthegemini is an Alternative Afrobeat and Visual Artist based in Nigeria. His work explores the duality of sound and sight, merging experimental rhythms with high-fidelity visual storytelling. Step into the Gemini World and experience the next era of African excellence.
+                Alexthegemini is an Alternative Afrobeat and Visual Artist based in Nigeria. His work explores the duality of sound and sight, merging experimental rhythms with high-fidelity visual storytelling.
               </p>
             </div>
 
-            {/* Projects Grid (No iframes) */}
+            {/* Projects Grid */}
             <section id="projects" className="pt-16 space-y-8">
               <h3 className="text-2xl font-bold">Featured Projects</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -180,7 +164,7 @@ export default function Home() {
             </section>
           </div>
 
-          {/* Sidebar Area (Airbnb Style Booking/Listening) */}
+          {/* Sidebar Area */}
           <aside className="lg:col-span-4">
             <div id="player" className="sticky top-28 p-8 airbnb-card border-[#222222]/10 space-y-6">
               <div className="flex items-end gap-2">
@@ -195,13 +179,13 @@ export default function Home() {
               <div className="space-y-4 pt-6">
                 <button
                   onClick={() => window.open('https://open.spotify.com/artist/3Wbkuzl1Ha7fBw77p15Lzw', '_blank')}
-                  className="w-full py-4 bg-[#FF5A5F] text-white font-bold rounded-2xl shadow-lg hover:opacity-95 transition-opacity active:scale-[0.98]"
+                  className="w-full glass-button !bg-[#FF5A5F] !text-white !border-none !py-4 shadow-lg active:scale-[0.98]"
                 >
                   LISTEN ON SPOTIFY
                 </button>
                 <button
                   onClick={() => window.open('https://music.apple.com/us/artist/alexthegemini/1473989177', '_blank')}
-                  className="w-full py-4 border border-[#222222] font-bold rounded-2xl hover:bg-[#F7F7F7] transition-all active:scale-[0.98]"
+                  className="w-full glass-button !py-4 active:scale-[0.98]"
                 >
                   APPLE MUSIC
                 </button>
@@ -214,7 +198,7 @@ export default function Home() {
           </aside>
         </div>
 
-        {/* Footer (Airbnb Style) */}
+        {/* Footer */}
         <footer id="contact" className="pt-24 pb-12 border-t border-[#222222]/10 space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="space-y-4">

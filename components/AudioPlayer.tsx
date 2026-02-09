@@ -48,15 +48,15 @@ export default function AudioPlayer() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[60] flex items-center justify-center bg-white/95 backdrop-blur-2xl"
+                        className="fixed inset-0 z-[60] flex items-center justify-center bg-white/40 backdrop-blur-3xl"
                         onClick={handleInteraction}
                     >
                         <motion.button
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="px-12 py-5 bg-[#FF5A5F] text-white font-black text-xl uppercase tracking-tighter rounded-2xl flex items-center gap-4 shadow-2xl shadow-coral/20"
+                            className="glass-button !px-12 !py-6 !text-2xl !rounded-2xl shadow-2xl"
                         >
-                            <Play className="w-6 h-6 fill-white" />
+                            <Play className="w-8 h-8 fill-black" />
                             Explore Gemini World
                         </motion.button>
                     </motion.div>
