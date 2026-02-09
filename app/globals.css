@@ -1,81 +1,89 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-accent-gray: #222222;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
 
 :root {
-  --foreground-rgb: 34, 34, 34;
-  /* Airbnb Deep Charcoal #222222 */
-  --background-start-rgb: 255, 251, 251;
-  /* Soft Warm White */
-  --background-end-rgb: 255, 255, 255;
-  --accent-coral: #FF5A5F;
-  /* Airbnb Coral */
-  --accent-muted: #22222208;
-  --card-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  --card-radius: 2rem;
+  --bg-primary: #000000;
+  --text-primary: #FFFFFF;
+  --accent-gray: #222222;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  padding: 0;
-  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-@layer components {
-  .airbnb-card {
-    background-color: white;
-    border-radius: 2rem;
-    border: 1px solid rgba(34, 34, 34, 0.06);
-    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+/* Utilities */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  color: transparent;
+}
+
+/* Animations */
+@keyframes bar-grow {
+
+  0%,
+  100% {
+    height: 4px;
   }
 
-  .airbnb-card:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-  }
-
-  .kinetic-text {
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    font-size: clamp(2.5rem, 8vw, 10rem);
-    line-height: 0.9;
-    color: #222222;
-  }
-
-  .glass-button {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: #000000;
-    padding: 0.75rem 1.5rem;
-    border-radius: 1rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  .glass-button:hover {
-    background: rgba(255, 255, 255, 0.6);
-    border-color: rgba(0, 0, 0, 0.2);
-    transform: translateY(-1px);
-  }
-
-  .glass-button:active {
-    transform: translateY(0);
+  50% {
+    height: 16px;
   }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.animate-bar {
+  animation: bar-grow 1s ease-in-out infinite;
 }
