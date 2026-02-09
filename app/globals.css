@@ -3,26 +3,34 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 253, 252, 240;
-  /* Cream #FDFCF0 */
-  --background-start-rgb: 18, 16, 14;
+  --foreground-rgb: 18, 16, 14;
   /* Warm Deep Charcoal #12100E */
-  --background-end-rgb: 10, 8, 7;
+  --background-start-rgb: 253, 252, 240;
+  /* Cream #FDFCF0 */
+  --background-end-rgb: 255, 251, 242;
   --accent-coral: #FF5A5F;
-  --accent-muted: #D4CFC3;
+  --accent-muted: #12100E20;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: radial-gradient(circle at center,
-      rgb(var(--background-start-rgb)),
-      rgb(var(--background-end-rgb)));
+  background: rgb(var(--background-start-rgb));
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-@layer Utilities {
+@layer components {
+  .kinetic-text {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    font-size: clamp(3rem, 10vw, 12rem);
+    line-height: 0.85;
+  }
+}
+
+@layer utilities {
   .text-balance {
     text-wrap: balance;
   }

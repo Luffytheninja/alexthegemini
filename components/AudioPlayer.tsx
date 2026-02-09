@@ -48,16 +48,16 @@ export default function AudioPlayer() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-[#12100E]/95 backdrop-blur-xl"
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-[#FDFCF0]/98 backdrop-blur-xl"
                         onClick={handleInteraction}
                     >
                         <motion.button
-                            whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(255, 90, 95, 0.2)" }}
+                            whileHover={{ scale: 1.02, boxShadow: "0 0 60px rgba(255, 90, 95, 0.15)" }}
                             whileTap={{ scale: 0.98 }}
-                            className="px-10 py-5 bg-[#FF5A5F] text-[#FDFCF0] font-bold text-xl uppercase tracking-[0.2em] rounded-full flex items-center gap-4 transition-shadow shadow-xl shadow-coral/10"
+                            className="px-12 py-6 bg-[#FF5A5F] text-[#FDFCF0] font-black text-2xl uppercase tracking-[0.3em] rounded-full flex items-center gap-5 shadow-2xl shadow-coral/20"
                         >
-                            <Play className="w-6 h-6 fill-[#FDFCF0]" />
-                            Enter Space
+                            <Play className="w-8 h-8 fill-[#FDFCF0]" />
+                            Initialize Experience
                         </motion.button>
                     </motion.div>
                 )}
