@@ -6,7 +6,7 @@ export default function About() {
     return (
         <Section id="about" className="bg-white">
             {/* Section Header */}
-            <h2 className="text-[clamp(4rem,12vw,10rem)] font-black text-charcoal tracking-tighter leading-[0.8] mb-24 md:mb-32 uppercase">
+            <h2 className="text-[clamp(3rem,8vw,8rem)] font-black text-charcoal tracking-tighter leading-[0.8] mb-24 md:mb-32 uppercase">
                 Artist<br />Profile
             </h2>
 

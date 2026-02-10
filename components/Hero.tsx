@@ -38,9 +38,9 @@ export default function Hero({ onEnter }: HeroProps) {
                         transition={{ duration: 0.8 }}
                     >
                         <h1 className="font-heading font-black tracking-tighter leading-[0.85]">
-                            <div className="text-[12vw] md:text-[10vw] lg:text-[8vw]">ALEX</div>
-                            <div className="text-[12vw] md:text-[10vw] lg:text-[8vw]">THE</div>
-                            <div className="text-[12vw] md:text-[10vw] lg:text-[8vw]">GEMINI</div>
+                            <div className="text-[10vw] md:text-[8vw] lg:text-[6vw]">ALEX</div>
+                            <div className="text-[10vw] md:text-[8vw] lg:text-[6vw]">THE</div>
+                            <div className="text-[10vw] md:text-[8vw] lg:text-[6vw]">GEMINI</div>
                         </h1>
                     </motion.div>
                 </div>
