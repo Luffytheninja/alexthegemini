@@ -4,7 +4,7 @@
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
 
-  /* Warm palette */
+  /* Warm palette (kept for accents if needed, but primary is B&W now) */
   --color-cream: #FFF8F0;
   --color-peach: #FFECD2;
   --color-tangerine: #FF6B35;
@@ -12,11 +12,8 @@
   --color-charcoal: #1A1A1A;
   --color-warm-gray: #6B5B50;
   --color-warm-light: #B8A99A;
-
-  /* Grass accent */
-  --color-grass: #7CB342;
-  --color-grass-dark: #558B2F;
-  --color-grass-light: #9CCC65;
+  --color-silver: #E5E5E5;
+  --color-smoke: #F5F5F5;
 }
 
 * {
@@ -30,7 +27,7 @@ html {
 }
 
 body {
-  background-color: var(--color-cream);
+  background-color: #FFFFFF;
   color: var(--color-charcoal);
   font-family: var(--font-body);
   overflow-x: hidden;
@@ -47,44 +44,28 @@ h6 {
   letter-spacing: -0.03em;
 }
 
-/* ═══ Breathing Gradient ═══ */
+/* ═══ B&W Breathing Gradient ═══ */
 @keyframes gradient-breathe {
 
   0%,
   100% {
     background-position: 0% 50%;
-    background-size: 200% 200%;
-  }
-
-  25% {
-    background-position: 100% 0%;
-    background-size: 250% 250%;
   }
 
   50% {
-    background-position: 100% 100%;
-    background-size: 200% 200%;
-  }
-
-  75% {
-    background-position: 0% 100%;
-    background-size: 250% 250%;
+    background-position: 100% 50%;
   }
 }
 
 .breathing-gradient {
-  background: linear-gradient(135deg,
-      #FF6B35 0%,
-      #D4451A 15%,
-      #E8446A 30%,
-      #8B5CF6 45%,
-      #3B82F6 55%,
-      #06B6D4 65%,
-      #10B981 75%,
-      #F59E0B 85%,
-      #FF6B35 100%);
-  background-size: 200% 200%;
-  animation: gradient-breathe 12s ease-in-out infinite;
+  background: linear-gradient(270deg,
+      #FFFFFF,
+      #F0F0F0,
+      #E0E0E0,
+      #F5F5F5,
+      #FFFFFF);
+  background-size: 400% 400%;
+  animation: gradient-breathe 15s ease-in-out infinite;
 }
 
 /* ═══ Scrollbar ═══ */
@@ -93,16 +74,16 @@ h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-cream);
+  background: #FFFFFF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-warm-light);
+  background: #CCCCCC;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-warm-gray);
+  background: #999999;
 }
 
 /* ═══ Audio bars ═══ */

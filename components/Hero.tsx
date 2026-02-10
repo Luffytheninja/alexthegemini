@@ -24,7 +24,7 @@ export default function Hero({ onEnter }: HeroProps) {
 
     return (
         <div
-            className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-cream cursor-pointer"
+            className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-white cursor-pointer"
             onClick={!hasEntered ? handleEnter : undefined}
         >
             <audio
@@ -34,8 +34,8 @@ export default function Hero({ onEnter }: HeroProps) {
                 preload="auto"
             />
 
-            {/* Breathing Gradient Background (Subtle) */}
-            <div className="absolute inset-0 breathing-gradient opacity-10 pointer-events-none" />
+            {/* Breathing Gradient Background (Subtle B&W) */}
+            <div className="absolute inset-0 breathing-gradient opacity-20 pointer-events-none" />
 
             {/* Entry Overlay */}
             <AnimatePresence>
@@ -44,7 +44,7 @@ export default function Hero({ onEnter }: HeroProps) {
                         initial={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 1.2 }}
-                        className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-cream/90 backdrop-blur-xl pointer-events-none"
+                        className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/90 backdrop-blur-xl pointer-events-none"
                     >
                         <motion.div
                             initial={{ scale: 0.95, opacity: 0 }}
@@ -68,22 +68,22 @@ export default function Hero({ onEnter }: HeroProps) {
                 initial={{ opacity: 0 }}
                 animate={hasEntered ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 1.5, delay: 0.2 }}
-                className="relative z-10 w-full h-full flex flex-col items-center justify-center"
+                className="relative z-10 w-full h-full flex flex-col items-center justify-center -mt-12 md:mt-0"
             >
                 <h1 className="text-[19vw] leading-[0.75] font-black tracking-tighter text-charcoal select-none mix-blend-multiply">
                     ALEX
                 </h1>
 
-                <div className="flex items-center justify-center w-full relative">
-                    <span className="hidden md:block absolute left-12 top-1/2 -translate-y-1/2 text-xs font-mono text-tangerine uppercase tracking-widest -rotate-90 origin-center whitespace-nowrap">
+                <div className="flex items-center justify-center w-full relative group">
+                    <span className="hidden md:block absolute left-12 top-1/2 -translate-y-1/2 text-xs font-mono text-charcoal/40 uppercase tracking-widest -rotate-90 origin-center whitespace-nowrap group-hover:text-charcoal transition-colors">
                         Est. 2023 &mdash; Lagos
                     </span>
 
-                    <h1 className="text-[19vw] leading-[0.75] font-black tracking-tighter text-tangerine select-none mix-blend-multiply hover:text-charcoal transition-colors duration-500">
+                    <h1 className="text-[19vw] leading-[0.75] font-black tracking-tighter text-charcoal/10 select-none mix-blend-multiply group-hover:text-charcoal transition-colors duration-1000 ease-out">
                         THE
                     </h1>
 
-                    <span className="hidden md:block absolute right-12 top-1/2 -translate-y-1/2 text-xs font-mono text-tangerine uppercase tracking-widest rotate-90 origin-center whitespace-nowrap">
+                    <span className="hidden md:block absolute right-12 top-1/2 -translate-y-1/2 text-xs font-mono text-charcoal/40 uppercase tracking-widest rotate-90 origin-center whitespace-nowrap group-hover:text-charcoal transition-colors">
                         Producer / Artist
                     </span>
                 </div>
@@ -98,7 +98,7 @@ export default function Hero({ onEnter }: HeroProps) {
                 initial={{ opacity: 0 }}
                 animate={hasEntered ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ delay: 1 }}
-                className="absolute bottom-8 w-full flex justify-between px-8 md:px-12 uppercase text-[10px] md:text-xs font-bold tracking-[0.2em] text-charcoal/40 pointer-events-none"
+                className="absolute bottom-12 w-full flex justify-between px-8 md:px-12 uppercase text-[10px] md:text-sm font-bold tracking-[0.2em] text-charcoal/40 pointer-events-none"
             >
                 <span>Scroll Down</span>
                 <span>V2.3 Studio Edition</span>

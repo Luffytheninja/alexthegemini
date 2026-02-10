@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram, Twitter, Music, ArrowRight, ArrowUpRight } from "lucide-react";
+import { Instagram, Twitter, Music, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 
 export default function ConnectSection() {
@@ -24,52 +24,52 @@ export default function ConnectSection() {
     ];
 
     return (
-        <section id="connect" className="pt-24 pb-12 bg-charcoal text-cream w-full">
-            <div className="w-full max-w-[95%] md:max-w-[90%] mx-auto">
+        <section id="connect" className="py-40 md:py-64 bg-charcoal text-white w-full">
+            <div className="w-full max-w-[1440px] px-6 md:px-12 mx-auto">
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 mb-32">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-48 mb-48">
                     {/* Newsletter Column */}
-                    <div className="space-y-8">
-                        <h2 className="text-4xl md:text-6xl font-black tracking-tighter">
-                            STAY IN THE LOOP
+                    <div className="space-y-12">
+                        <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none">
+                            STAY IN<br />THE LOOP
                         </h2>
-                        <p className="text-white/60 text-lg max-w-md">
+                        <p className="text-white/60 text-xl max-w-md leading-relaxed">
                             New music, behind-the-scenes sauce, and absolutely zero spam. 🤞
                         </p>
-                        <form onSubmit={handleSubscribe} className="flex gap-4 border-b border-white/20 pb-4 max-w-md group focus-within:border-tangerine transition-colors">
+                        <form onSubmit={handleSubscribe} className="flex flex-col gap-6 pt-8 max-w-md group">
                             <input
                                 type="email"
                                 placeholder="your@email.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="flex-1 bg-transparent border-none outline-none text-xl font-bold placeholder:text-white/20"
+                                className="w-full bg-transparent border-b border-white/20 pb-4 outline-none text-2xl font-bold placeholder:text-white/20 focus:border-white transition-colors"
                                 required
                             />
                             <button
                                 type="submit"
-                                className="text-xs font-bold uppercase tracking-widest text-white/60 group-hover:text-tangerine transition-colors"
+                                className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 text-left hover:text-white transition-colors"
                             >
-                                Subscribe
+                                Subscribe →
                             </button>
                         </form>
-                        {subscribed && <p className="text-tangerine font-bold">You don dey! 🎉</p>}
+                        {subscribed && <p className="text-white font-bold text-xl">You don dey! 🎉</p>}
                     </div>
 
                     {/* Social Links Column */}
-                    <div className="flex flex-col justify-between">
-                        <div className="space-y-4">
+                    <div className="flex flex-col justify-end">
+                        <div className="space-y-0">
                             {socials.map((social) => (
                                 <a
                                     key={social.name}
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-between py-6 border-b border-white/10 hover:border-tangerine group transition-colors"
+                                    className="flex items-center justify-between py-8 border-b border-white/10 hover:border-white group transition-colors"
                                 >
-                                    <span className="text-2xl md:text-3xl font-black uppercase text-white group-hover:text-tangerine transition-colors">
+                                    <span className="text-3xl md:text-5xl font-black uppercase text-white/50 group-hover:text-white transition-colors">
                                         {social.name}
                                     </span>
-                                    <ArrowUpRight className="w-6 h-6 text-white/20 group-hover:text-tangerine transition-colors" />
+                                    <ArrowUpRight className="w-8 h-8 text-white/20 group-hover:text-white transition-colors opacity-0 group-hover:opacity-100" />
                                 </a>
                             ))}
                         </div>
@@ -77,13 +77,13 @@ export default function ConnectSection() {
                 </div>
 
                 {/* Minimal Footer */}
-                <div className="flex flex-col md:flex-row justify-between items-end border-t border-white/10 pt-8 text-xs font-bold uppercase tracking-widest text-white/30">
-                    <div className="space-y-1">
+                <div className="flex flex-col md:flex-row justify-between items-end border-t border-white/10 pt-12 text-xs font-bold uppercase tracking-[0.2em] text-white/30">
+                    <div className="space-y-2">
                         <p>&copy; {new Date().getFullYear()} Alexthegemini</p>
                         <p>Lagos, Nigeria</p>
                     </div>
-                    <div className="text-right mt-4 md:mt-0">
-                        <p>Built with vibes ☕</p>
+                    <div className="text-right mt-8 md:mt-0">
+                        <p>Studio Edition v2.3</p>
                     </div>
                 </div>
 

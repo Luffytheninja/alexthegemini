@@ -5,59 +5,62 @@ import { useState } from "react";
 
 export default function About() {
     return (
-        <section id="about" className="py-24 md:py-32 bg-cream w-full border-t border-charcoal">
-            <div className="w-full max-w-[95%] md:max-w-[90%] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24">
+        <section id="about" className="py-40 md:py-64 bg-white w-full border-t border-charcoal/10">
+            <div className="w-full max-w-[1440px] px-6 md:px-12 mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-32">
 
                 {/* Left Column: Title & Stats */}
-                <div className="md:col-span-5 space-y-12 md:space-y-24 sticky top-12 h-fit">
-                    <div className="space-y-4">
-                        <span className="text-xs font-bold tracking-[0.2em] uppercase text-charcoal/60 block mb-2">
+                <div className="md:col-span-4 space-y-16 md:space-y-32 sticky top-12 h-fit">
+                    <div className="space-y-6">
+                        <span className="text-sm font-bold tracking-[0.2em] uppercase text-charcoal/50 block">
                             Profile
                         </span>
-                        <h2 className="text-6xl md:text-8xl font-black text-charcoal tracking-tighter leading-[0.85]">
+                        <h2 className="text-7xl md:text-[8rem] font-black text-charcoal tracking-tighter leading-[0.8] mix-blend-difference">
                             ALEX<br />
                             THE<br />
                             GEMINI
                         </h2>
                     </div>
 
-                    <div className="hidden md:block space-y-8">
-                        <div className="border-t border-charcoal/20 pt-4">
-                            <p className="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-1">Based</p>
-                            <p className="text-xl font-bold text-charcoal">Lagos, Nigeria</p>
+                    <div className="hidden md:block space-y-10">
+                        <div className="border-t border-charcoal/10 pt-6">
+                            <p className="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-2">Based</p>
+                            <p className="text-2xl font-bold text-charcoal">Lagos, Nigeria</p>
                         </div>
-                        <div className="border-t border-charcoal/20 pt-4">
-                            <p className="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-1">Affiliation</p>
-                            <p className="text-xl font-bold text-charcoal">Ixximob Collective</p>
+                        <div className="border-t border-charcoal/10 pt-6">
+                            <p className="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-2">Affiliation</p>
+                            <p className="text-2xl font-bold text-charcoal">Ixximob Collective</p>
                         </div>
-                        <div className="border-t border-charcoal/20 pt-4">
-                            <p className="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-1">Role</p>
-                            <p className="text-xl font-bold text-charcoal">Producer / Artist</p>
+                        <div className="border-t border-charcoal/10 pt-6">
+                            <p className="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-2">Role</p>
+                            <p className="text-2xl font-bold text-charcoal">Producer / Artist</p>
                         </div>
                     </div>
                 </div>
 
                 {/* Right Column: Editorial Text */}
-                <div className="md:col-span-7 space-y-10 text-lg md:text-2xl leading-[1.6] text-charcoal font-medium">
-                    <p className="indent-12 md:indent-24">
-                        It starts with the feeling. Rooted in Afrobeats but allergic to staying in one lane. The sound bounces between soul-sampled instrumentals, melodic trap, underground rage, and experimental loop-chopping. <span className="text-tangerine font-bold">Feeling over formula, always.</span>
+                <div className="md:col-span-1" /> {/* Spacer */}
+                <div className="md:col-span-7 space-y-16 text-xl md:text-3xl leading-[1.5] text-charcoal font-medium tracking-tight">
+                    <p className="indent-[4rem] md:indent-[8rem]">
+                        It starts with the feeling. Rooted in Afrobeats but allergic to staying in one lane. The sound bounces between soul-sampled instrumentals, melodic trap, underground rage, and experimental loop-chopping.
                     </p>
                     <p>
-                        Alex is a Nigerian music producer and artist based in Lagos. He makes things that sound good and look even better. Theatre Arts background, which explains the dramatic energy.
+                        Alex is a Nigerian music producer and artist based in Lagos. He makes things that sound good and look even better. <span className="opacity-40">Theatre Arts background, which explains the dramatic energy.</span>
                     </p>
-                    <p>
-                        He romanticizes everyday life — the mundane becomes cinematic, the familiar becomes poetic. Most of his production happens on mobile. No studio ego. <br /> Just ideas, executed wherever inspiration hits: on a bus, in a room, at 3AM.
-                    </p>
+                    <div className="border-l-2 border-charcoal/10 pl-8 md:pl-16 py-4">
+                        <p className="text-lg md:text-2xl text-charcoal/60 leading-relaxed italic">
+                            He romanticizes everyday life — the mundane becomes cinematic, the familiar becomes poetic. Most of his production happens on mobile. No studio ego. Just ideas, executed wherever inspiration hits.
+                        </p>
+                    </div>
 
-                    {/* Mobile Stats (only visible on small screens) */}
-                    <div className="md:hidden grid grid-cols-2 gap-8 py-12 border-t border-charcoal/20 mt-12">
+                    {/* Mobile Stats */}
+                    <div className="md:hidden grid grid-cols-1 gap-8 py-16 border-t border-charcoal/10 mt-16">
                         <div>
-                            <p className="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-1">Based</p>
-                            <p className="text-lg font-bold text-charcoal">Lagos</p>
+                            <p className="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-2">Based</p>
+                            <p className="text-3xl font-bold text-charcoal">Lagos</p>
                         </div>
                         <div>
-                            <p className="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-1">Team</p>
-                            <p className="text-lg font-bold text-charcoal">Ixximob</p>
+                            <p className="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-2">Team</p>
+                            <p className="text-3xl font-bold text-charcoal">Ixximob</p>
                         </div>
                     </div>
                 </div>
