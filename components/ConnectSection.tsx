@@ -23,13 +23,13 @@ export default function ConnectSection() {
     ];
 
     return (
-        <section id="connect" className="py-[15vh] md:py-[25vh] bg-charcoal text-white w-full">
-            <div className="w-full max-w-[1440px] px-6 md:px-16 mx-auto">
+        <section id="connect" className="pt-[15vh] pb-[30vh] md:pb-[25vh] bg-charcoal text-white w-full">
+            <div className="w-full max-w-[1440px] px-[5vw] mx-auto">
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-48 mb-[15vh]">
                     {/* Newsletter Column */}
                     <div className="space-y-12">
-                        <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none">
+                        <h2 className="text-[clamp(3rem,6vw,5rem)] font-black tracking-tighter leading-none">
                             STAY IN<br />THE LOOP
                         </h2>
                         <p className="text-white/60 text-xl max-w-md leading-relaxed">
@@ -65,7 +65,7 @@ export default function ConnectSection() {
                                     rel="noopener noreferrer"
                                     className="flex items-center justify-between py-10 md:py-12 border-b border-white/10 hover:border-white group transition-colors"
                                 >
-                                    <span className="text-3xl md:text-5xl font-black uppercase text-white/50 group-hover:text-white transition-colors">
+                                    <span className="text-[clamp(1.5rem,3vw,3rem)] font-black uppercase text-white/50 group-hover:text-white transition-colors">
                                         {social.name}
                                     </span>
                                     <ArrowUpRight className="w-8 h-8 text-white/20 group-hover:text-white transition-colors opacity-0 group-hover:opacity-100" />

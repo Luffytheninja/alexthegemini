@@ -23,8 +23,14 @@ export default function AudioControls({ audioRef }: AudioControlsProps) {
         audio.addEventListener("play", handlePlay);
         audio.addEventListener("pause", handlePause);
 
+        // Show player if playing (checking on mount)
+        if (!audio.paused) {
+            setIsVisible(true);
+            setIsPlaying(true); // Sync state
+        }
+
         const handleScroll = () => {
-            if (window.scrollY > 200) setIsVisible(true);
+            if (window.scrollY > 100) setIsVisible(true);
         };
         window.addEventListener("scroll", handleScroll);
 
@@ -37,7 +43,11 @@ export default function AudioControls({ audioRef }: AudioControlsProps) {
 
     const togglePlay = () => {
         if (!audioRef.current) return;
-        isPlaying ? audioRef.current.pause() : audioRef.current.play();
+        if (isPlaying) {
+            audioRef.current.pause();
+        } else {
+            audioRef.current.play().catch(e => console.error("Play failed:", e));
+        }
     };
 
     const toggleMute = () => {
@@ -50,38 +60,57 @@ export default function AudioControls({ audioRef }: AudioControlsProps) {
         <AnimatePresence>
             {isVisible && (
                 <motion.div
-                    initial={{ y: 50, opacity: 0 }}
+                    initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 50, opacity: 0 }}
-                    className="fixed bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-8 z-[100] flex items-center gap-3 bg-charcoal text-white px-5 py-3 rounded-full shadow-xl"
-                    title="Unreleased. Enjoy the preview sha 🎛️"
+                    exit={{ y: 100, opacity: 0 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                    className="fixed bottom-6 right-6 z-50 flex items-center gap-4 bg-charcoal text-white rounded-full 
+                             shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-2 border-charcoal overflow-hidden pl-6 pr-2 py-2
+                             pb-[max(0.5rem,calc(env(safe-area-inset-bottom)+0.5rem))]"
                 >
-                    <div className="hidden sm:flex flex-col items-start pr-3 border-r border-white/20">
-                        <span className="text-[9px] font-bold text-white/40 uppercase tracking-widest">
-                            Playing
+                    {/* Marquee Track Info */}
+                    <div className="flex flex-col w-[140px] overflow-hidden">
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-0.5">
+                            Now Playing
                         </span>
-                        <span className="text-xs font-bold text-white truncate max-w-[120px]">
-                            HOT BO1 ✨
-                        </span>
+                        <div className="relative w-full h-5 overflow-hidden">
+                            <motion.div
+                                className="whitespace-nowrap absolute"
+                                animate={{ x: ["0%", "-50%"] }}
+                                transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+                            >
+                                <span className="text-sm font-bold text-white mr-8">
+                                    HOT BO1 (w. Yo$hinoya) 123bpm
+                                </span>
+                                <span className="text-sm font-bold text-white mr-8">
+                                    HOT BO1 (w. Yo$hinoya) 123bpm
+                                </span>
+                            </motion.div>
+                        </div>
                     </div>
 
-                    <div className="flex items-center gap-1.5">
+                    {/* Divider */}
+                    <div className="w-px h-8 bg-white/10" />
+
+                    {/* Controls */}
+                    <div className="flex items-center gap-2">
                         <button
                             onClick={toggleMute}
-                            className="p-2 hover:bg-white/10 rounded-full transition-colors"
-                            aria-label={isMuted ? "Unmute" : "Mute (but why tho?)"}
+                            className="p-3 hover:bg-white/10 rounded-full transition-colors text-white/60 hover:text-white"
+                            aria-label={isMuted ? "Unmute" : "Mute"}
                         >
-                            {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+                            {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
                         </button>
+
                         <button
                             onClick={togglePlay}
-                            className="w-9 h-9 bg-tangerine text-white flex items-center justify-center rounded-full hover:bg-rust hover:scale-110 transition-all"
+                            className="w-12 h-12 bg-cream text-charcoal flex items-center justify-center rounded-full hover:bg-white transition-all hover:scale-105 active:scale-95 shadow-sm"
                             aria-label={isPlaying ? "Pause" : "Play"}
                         >
                             {isPlaying ? (
-                                <Pause size={14} fill="currentColor" />
+                                <Pause size={20} fill="currentColor" />
                             ) : (
-                                <Play size={14} fill="currentColor" className="ml-0.5" />
+                                <Play size={20} fill="currentColor" className="ml-1" />
                             )}
                         </button>
                     </div>

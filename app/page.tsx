@@ -21,14 +21,14 @@ export default function Home() {
       <About />
 
       {/* Section Divider */}
-      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-16 py-[8vh]">
+      <div className="w-full max-w-[1440px] mx-auto px-[5vw] py-[8vh]">
         <div className="w-full h-px bg-charcoal/10" />
       </div>
 
       <ContentGrid />
 
       {/* Section Divider */}
-      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-16 py-[8vh]">
+      <div className="w-full max-w-[1440px] mx-auto px-[5vw] py-[8vh]">
         <div className="w-full h-px bg-charcoal/10" />
       </div>
 

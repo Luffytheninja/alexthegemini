@@ -15,7 +15,7 @@ export default function ContentGrid() {
 
     return (
         <section id="music" className="py-[15vh] md:py-[25vh] bg-white w-full relative z-10">
-            <div className="w-full max-w-[1440px] px-6 md:px-16 mx-auto relative">
+            <div className="w-full max-w-[1440px] px-[5vw] mx-auto relative">
 
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-40 md:mb-48 border-b border-charcoal/10 pb-16">
@@ -23,12 +23,12 @@ export default function ContentGrid() {
                         <span className="text-sm font-bold tracking-[0.2em] uppercase text-charcoal/50">
                             Selected Works (2023 — 2025)
                         </span>
-                        <h2 className="text-6xl md:text-[10rem] font-black text-charcoal tracking-tighter leading-[0.8]">
+                        <h2 className="text-[clamp(4rem,15vw,12rem)] font-black text-charcoal tracking-tighter leading-[0.8]">
                             INDEX
                         </h2>
                     </div>
                     <div className="mt-12 md:mt-0 text-right">
-                        <p className="text-lg md:text-xl font-medium max-w-md ml-auto text-charcoal/70 leading-relaxed md:indent-12">
+                        <p className="text-lg md:text-xl font-medium max-w-md ml-auto text-charcoal/90 leading-relaxed md:indent-12">
                             A collection of sonic experiments from Lagos. <br />
                             Afro-fusion, Rage, and Vibes.
                         </p>
@@ -53,13 +53,13 @@ export default function ContentGrid() {
                                     <span className="text-sm font-mono text-charcoal/30 w-12 hidden md:block">
                                         (0{release.id})
                                     </span>
-                                    <h3 className="text-5xl md:text-8xl font-black text-charcoal tracking-tight uppercase group-hover:indent-8 transition-all duration-500">
+                                    <h3 className="text-[clamp(2rem,6vw,6rem)] font-black text-charcoal tracking-tight uppercase group-hover:indent-8 transition-all duration-500">
                                         {release.title}
                                     </h3>
                                 </div>
 
                                 <div className="flex items-center gap-12 mt-8 md:mt-0 w-full md:w-auto justify-between md:justify-end">
-                                    <span className="text-sm font-bold uppercase tracking-widest text-charcoal/40 hidden md:block">
+                                    <span className="text-sm font-bold uppercase tracking-widest text-charcoal/60 hidden md:block">
                                         {release.type}
                                     </span>
                                     <span className="text-sm font-mono text-charcoal/40 hidden md:block">

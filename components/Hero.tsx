@@ -52,7 +52,7 @@ export default function Hero({ onEnter }: HeroProps) {
                             transition={{ duration: 1.5 }}
                             className="text-center px-6"
                         >
-                            <h1 className="text-[12vw] leading-[0.85] font-black tracking-tighter text-charcoal mb-4 select-none">
+                            <h1 className="text-[clamp(12vw,16vw,20rem)] leading-[0.85] font-black tracking-tighter text-charcoal mb-4 select-none">
                                 GEMINI
                             </h1>
                             <p className="text-xs font-mono text-charcoal/60 uppercase tracking-widest animate-pulse">
@@ -68,27 +68,27 @@ export default function Hero({ onEnter }: HeroProps) {
                 initial={{ opacity: 0 }}
                 animate={hasEntered ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 1.5, delay: 0.2 }}
-                className="relative z-10 w-full h-full flex flex-col items-center justify-center -mt-12 md:mt-0"
+                className="relative z-10 w-full h-full flex flex-col items-center justify-center -mt-12 md:mt-0 px-[5vw]"
             >
-                <h1 className="text-[19vw] leading-[0.75] font-black tracking-tighter text-charcoal select-none mix-blend-multiply">
+                <h1 className="text-[clamp(4rem,17vw,16rem)] leading-[0.75] font-black tracking-tighter text-charcoal select-none mix-blend-multiply">
                     ALEX
                 </h1>
 
                 <div className="flex items-center justify-center w-full relative group">
-                    <span className="hidden md:block absolute left-12 top-1/2 -translate-y-1/2 text-xs font-mono text-charcoal/40 uppercase tracking-widest -rotate-90 origin-center whitespace-nowrap group-hover:text-charcoal transition-colors">
+                    <span className="hidden md:block absolute left-0 text-[10px] md:text-xs font-mono text-charcoal/60 uppercase tracking-widest -rotate-90 origin-center whitespace-nowrap group-hover:text-charcoal transition-colors">
                         Est. 2023 &mdash; Lagos
                     </span>
 
-                    <h1 className="text-[19vw] leading-[0.75] font-black tracking-tighter text-charcoal/10 select-none mix-blend-multiply group-hover:text-charcoal transition-colors duration-1000 ease-out">
+                    <h1 className="text-[clamp(4rem,17vw,16rem)] leading-[0.75] font-black tracking-tighter text-charcoal/5 select-none mix-blend-multiply group-hover:text-charcoal transition-colors duration-1000 ease-out">
                         THE
                     </h1>
 
-                    <span className="hidden md:block absolute right-12 top-1/2 -translate-y-1/2 text-xs font-mono text-charcoal/40 uppercase tracking-widest rotate-90 origin-center whitespace-nowrap group-hover:text-charcoal transition-colors">
+                    <span className="hidden md:block absolute right-0 text-[10px] md:text-xs font-mono text-charcoal/60 uppercase tracking-widest rotate-90 origin-center whitespace-nowrap group-hover:text-charcoal transition-colors">
                         Producer / Artist
                     </span>
                 </div>
 
-                <h1 className="text-[19vw] leading-[0.75] font-black tracking-tighter text-charcoal select-none mix-blend-multiply">
+                <h1 className="text-[clamp(4rem,17vw,16rem)] leading-[0.75] font-black tracking-tighter text-charcoal select-none mix-blend-multiply">
                     GEMINI
                 </h1>
             </motion.div>
@@ -98,7 +98,7 @@ export default function Hero({ onEnter }: HeroProps) {
                 initial={{ opacity: 0 }}
                 animate={hasEntered ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ delay: 1 }}
-                className="absolute bottom-12 w-full flex justify-between px-8 md:px-12 uppercase text-[10px] md:text-sm font-bold tracking-[0.2em] text-charcoal/40 pointer-events-none"
+                className="absolute bottom-12 w-full flex justify-between px-[5vw] uppercase text-[10px] md:text-sm font-bold tracking-[0.2em] text-charcoal/40 pointer-events-none"
             >
                 <span>Scroll Down</span>
                 <span>V2.3 Studio Edition</span>
