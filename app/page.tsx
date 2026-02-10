@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useState } from "react";
 import Hero from "@/components/Hero";
 import AudioControls from "@/components/AudioControls";
@@ -15,7 +16,7 @@ export default function Home() {
   };
 
   return (
-    <main className="bg-white min-h-screen selection:bg-black selection:text-white">
+    <main className="bg-cream w-full min-h-screen selection:bg-tangerine selection:text-white overflow-x-hidden">
       <Hero onEnter={handleEnter} />
       {audioRef && <AudioControls audioRef={audioRef} />}
       <About />
