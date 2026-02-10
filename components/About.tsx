@@ -2,8 +2,8 @@
 
 export default function About() {
     return (
-        <section id="about" className="py-[15vh] md:py-[25vh] bg-white w-full">
-            <div className="w-full px-8 md:px-[12vw] mx-auto">
+        <section id="about" className="py-24 px-6 md:px-12 bg-white w-full">
+            <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <h2 className="text-[clamp(4rem,12vw,10rem)] font-black text-charcoal tracking-tighter leading-[0.8] mb-24 md:mb-32 uppercase">
                     Artist<br />Profile
