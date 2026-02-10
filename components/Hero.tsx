@@ -16,7 +16,6 @@ export default function Hero({ onEnter }: HeroProps) {
                 console.error("Audio playback blocked:", e)
             );
         }
-        setHasEntered(true);
         onEnter(audioRef);
     }, [onEnter]);
 
