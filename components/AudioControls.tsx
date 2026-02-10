@@ -23,7 +23,6 @@ export default function AudioControls({ audioRef }: AudioControlsProps) {
         audio.addEventListener("play", handlePlay);
         audio.addEventListener("pause", handlePause);
 
-        // Also show on scroll
         const handleScroll = () => {
             if (window.scrollY > 200) setIsVisible(true);
         };
@@ -38,11 +37,7 @@ export default function AudioControls({ audioRef }: AudioControlsProps) {
 
     const togglePlay = () => {
         if (!audioRef.current) return;
-        if (isPlaying) {
-            audioRef.current.pause();
-        } else {
-            audioRef.current.play();
-        }
+        isPlaying ? audioRef.current.pause() : audioRef.current.play();
     };
 
     const toggleMute = () => {
@@ -58,37 +53,35 @@ export default function AudioControls({ audioRef }: AudioControlsProps) {
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 50, opacity: 0 }}
-                    className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[100] flex items-center gap-3 bg-white border border-black/10 shadow-lg px-5 py-2.5 rounded-full"
+                    className="fixed bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-8 z-[100] flex items-center gap-3 bg-charcoal text-white px-5 py-3 rounded-full shadow-xl"
                     title="Unreleased. Enjoy the preview sha 🎛️"
                 >
-                    {/* Track info */}
-                    <div className="hidden sm:flex flex-col items-start pr-3 border-r border-black/10">
-                        <span className="text-[9px] font-bold text-black/30 uppercase tracking-widest">
-                            Now Playing
+                    <div className="hidden sm:flex flex-col items-start pr-3 border-r border-white/20">
+                        <span className="text-[9px] font-bold text-white/40 uppercase tracking-widest">
+                            Playing
                         </span>
-                        <span className="text-xs font-bold text-black truncate max-w-[130px]">
-                            HOT BO1 (Unreleased)
+                        <span className="text-xs font-bold text-white truncate max-w-[120px]">
+                            HOT BO1 ✨
                         </span>
                     </div>
 
-                    {/* Controls */}
                     <div className="flex items-center gap-1.5">
                         <button
                             onClick={toggleMute}
-                            className="p-2 hover:bg-black/5 rounded-full transition-colors"
-                            aria-label={isMuted ? "Unmute audio" : "Mute (but why tho?)"}
+                            className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                            aria-label={isMuted ? "Unmute" : "Mute (but why tho?)"}
                         >
                             {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
                         </button>
                         <button
                             onClick={togglePlay}
-                            className="w-9 h-9 bg-black text-white flex items-center justify-center rounded-full hover:bg-gray-800 hover:scale-105 transition-all"
-                            aria-label={isPlaying ? "Pause audio" : "Play audio"}
+                            className="w-9 h-9 bg-tangerine text-white flex items-center justify-center rounded-full hover:bg-rust hover:scale-110 transition-all"
+                            aria-label={isPlaying ? "Pause" : "Play"}
                         >
                             {isPlaying ? (
-                                <Pause size={16} fill="currentColor" />
+                                <Pause size={14} fill="currentColor" />
                             ) : (
-                                <Play size={16} fill="currentColor" className="ml-0.5" />
+                                <Play size={14} fill="currentColor" className="ml-0.5" />
                             )}
                         </button>
                     </div>

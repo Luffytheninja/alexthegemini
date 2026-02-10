@@ -1,70 +1,51 @@
 export interface Release {
     id: number;
     title: string;
-    type: "Project" | "Single" | "EP";
-    year?: string;
-    coverUrl: string;
-    spotifyUrl: string;
-    appleMusicUrl?: string;
-}
-
-export interface Visual {
-    id: number;
-    title: string;
-    type: string;
-    thumbnailUrl: string;
-    linkUrl: string;
-    hoverText?: string;
+    type: "Album" | "EP" | "Single";
+    year: string;
+    spotifyEmbedId: string;
+    funLine: string;
 }
 
 export const releases: Release[] = [
     {
         id: 1,
-        title: "Brighter Demos",
-        type: "Project",
-        year: "2022",
-        coverUrl: "/images/brighter-demos.jpg",
-        spotifyUrl: "https://open.spotify.com/artist/3Wbkuzl1Ha7fBw77p15Lzw",
+        title: "O.L.B - V3rt1go",
+        type: "EP",
+        year: "2025",
+        spotifyEmbedId: "0ZdMYcvT0IgXKIj4TZEdEk",
+        funLine: "5 tracks. Zero skips. You're welcome. 🎯",
     },
     {
         id: 2,
-        title: "Chicken Licken",
-        type: "Single",
-        coverUrl: "/images/chicken-licken.jpg",
-        spotifyUrl: "https://open.spotify.com/artist/3Wbkuzl1Ha7fBw77p15Lzw",
+        title: "Obsessive Loverboy",
+        type: "Album",
+        year: "2025",
+        spotifyEmbedId: "2bPfSklUxOmWzIdCSTfpA8",
+        funLine: "7 songs about feelings I'll never admit to having 💀",
     },
     {
         id: 3,
-        title: "Unique Minded",
+        title: "Kilishi",
         type: "Single",
-        coverUrl: "/images/unique-minded.jpg",
-        spotifyUrl: "https://open.spotify.com/artist/3Wbkuzl1Ha7fBw77p15Lzw",
+        year: "2025",
+        spotifyEmbedId: "1TvS8322ifVS4YwmxypT0n",
+        funLine: "Named after the snack. Just as addictive. 🥩",
     },
-];
-
-export const visuals: Visual[] = [
     {
         id: 4,
-        title: "Mobile Production Sessions",
-        type: "Series",
-        thumbnailUrl: "/images/mobile-sessions.jpg",
-        linkUrl: "https://instagram.com/al3xtheg3mini",
-        hoverText: "Mobile magic 📱",
+        title: "Yaba",
+        type: "Single",
+        year: "2025",
+        spotifyEmbedId: "7g1KTbSmbIFOL8Ht8J5vBX",
+        funLine: "Lagos energy in one track. Press play abeg. 🏙️",
     },
     {
         id: 5,
-        title: "Ixximob Collective",
-        type: "Community",
-        thumbnailUrl: "/images/ixximob.jpg",
-        linkUrl: "https://instagram.com/ixximob",
-        hoverText: "The collective 🔥",
-    },
-    {
-        id: 6,
-        title: "Behind The Boards",
-        type: "Archive",
-        thumbnailUrl: "/images/bts.jpg",
-        linkUrl: "https://instagram.com/al3xtheg3mini",
-        hoverText: "View",
+        title: "Cupid",
+        type: "Single",
+        year: "2024",
+        spotifyEmbedId: "1OOxDNpWPeUu5veaGt4glS",
+        funLine: "Love is chaos. This is the soundtrack. 💘",
     },
 ];

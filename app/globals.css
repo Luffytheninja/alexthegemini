@@ -3,36 +3,20 @@
 @theme {
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
-}
 
-:root {
-  /* Lagos Light Palette */
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F8F8F8;
-  --bg-tertiary: #F0F0F0;
-  --text-primary: #000000;
-  --text-secondary: #404040;
-  --text-tertiary: #808080;
-  --text-quaternary: #A0A0A0;
-  --accent: #000000;
-  --accent-hover: #333333;
-  --border-light: rgba(0, 0, 0, 0.05);
-  --border-medium: rgba(0, 0, 0, 0.1);
-  --border-dark: rgba(0, 0, 0, 0.2);
+  /* Warm palette */
+  --color-cream: #FFF8F0;
+  --color-peach: #FFECD2;
+  --color-tangerine: #FF6B35;
+  --color-rust: #D4451A;
+  --color-charcoal: #1A1A1A;
+  --color-warm-gray: #6B5B50;
+  --color-warm-light: #B8A99A;
 
-  /* Grass Shader Colors */
-  --grass-primary: #7CB342;
-  --grass-secondary: #558B2F;
-  --grass-highlight: #9CCC65;
-  --grass-shadow: #33691E;
-  --grass-ground: #8D6E63;
-
-  /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.12);
+  /* Grass */
+  --color-grass: #7CB342;
+  --color-grass-dark: #558B2F;
+  --color-grass-light: #9CCC65;
 }
 
 * {
@@ -46,8 +30,8 @@ html {
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
   font-family: var(--font-body);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -60,7 +44,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 /* Scrollbar */
@@ -69,33 +53,54 @@ h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F8F8F8;
+  background: var(--color-cream);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: var(--color-warm-light);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #999;
+  background: var(--color-warm-gray);
 }
 
-/* Audio bars animation */
+/* Audio bars */
 @keyframes bar-grow {
 
   0%,
   100% {
-    height: 4px;
+    height: 3px;
   }
 
   50% {
-    height: 18px;
+    height: 16px;
   }
 }
 
 .animate-bar {
   animation: bar-grow 0.9s ease-in-out infinite;
+}
+
+/* Fun hover wiggle */
+@keyframes wiggle {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-2deg);
+  }
+
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+.hover-wiggle:hover {
+  animation: wiggle 0.3s ease-in-out;
 }
 
 /* Reduced motion */

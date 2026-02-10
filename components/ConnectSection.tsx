@@ -17,76 +17,63 @@ export default function ConnectSection() {
     };
 
     const socials = [
-        {
-            name: "Instagram",
-            handle: "@Al3xtheg3mini",
-            href: "https://instagram.com/al3xtheg3mini",
-            icon: Instagram,
-        },
-        {
-            name: "X / Twitter",
-            handle: "@Al3xtheg3mini",
-            href: "https://x.com/al3xtheg3mini",
-            icon: Twitter,
-        },
-        {
-            name: "Spotify",
-            handle: "Alexthegemini",
-            href: "https://open.spotify.com/artist/3Wbkuzl1Ha7fBw77p15Lzw",
-            icon: Music,
-        },
-        {
-            name: "Ixximob",
-            handle: "@Ixximob",
-            href: "https://instagram.com/ixximob",
-            icon: Instagram,
-        },
+        { name: "Instagram", handle: "@Al3xtheg3mini", href: "https://instagram.com/al3xtheg3mini", icon: Instagram, emoji: "📸" },
+        { name: "X / Twitter", handle: "@Al3xtheg3mini", href: "https://x.com/al3xtheg3mini", icon: Twitter, emoji: "🐦" },
+        { name: "Spotify", handle: "Alexthegemini", href: "https://open.spotify.com/artist/3Wbkuzl1Ha7fBw77p15Lzw", icon: Music, emoji: "🎧" },
+        { name: "Ixximob", handle: "@Ixximob", href: "https://instagram.com/ixximob", icon: Instagram, emoji: "🔥" },
     ];
 
     return (
-        <section id="connect" className="py-24 md:py-32 px-6 md:px-12 bg-white">
-            <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
-                {/* Social Links */}
+        <section id="connect" className="py-28 md:py-36 px-6 md:px-12 bg-cream">
+            <div className="max-w-3xl mx-auto text-center space-y-16">
+                {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="space-y-10"
+                    className="space-y-4"
                 >
-                    <div className="space-y-2">
-                        <h2 className="text-xs font-bold tracking-[0.5em] text-black/30 uppercase">
-                            Connect
-                        </h2>
-                        <h3 className="text-4xl md:text-5xl font-black tracking-tight text-black">
-                            Stay Tuned
-                        </h3>
-                    </div>
+                    <p className="text-xs font-bold tracking-[0.5em] text-warm-gray uppercase">
+                        Don&apos;t be a stranger
+                    </p>
+                    <h2 className="text-5xl md:text-7xl font-black tracking-tight text-charcoal">
+                        Let&apos;s link up 🤝
+                    </h2>
+                    <p className="text-base text-warm-gray font-medium max-w-md mx-auto">
+                        Follow the journey. Or just lurk. I see you either way. 👀
+                    </p>
+                </motion.div>
 
-                    <div className="grid grid-cols-2 gap-4">
-                        {socials.map((social) => (
-                            <a
-                                key={social.name}
-                                href={social.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group flex flex-col justify-between p-6 h-36 bg-white border border-black/5 hover:border-black/15 hover:shadow-md transition-all relative overflow-hidden"
-                            >
-                                <div className="flex justify-between items-start">
-                                    <span className="text-[10px] font-bold tracking-widest text-black/30 uppercase">
-                                        {social.name}
-                                    </span>
-                                    <social.icon
-                                        size={20}
-                                        className="text-black/10 group-hover:text-black/40 transition-colors"
-                                    />
-                                </div>
-                                <h4 className="text-sm font-bold text-black tracking-tight">
-                                    {social.handle}
-                                </h4>
-                            </a>
-                        ))}
-                    </div>
+                {/* Social Grid */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="grid grid-cols-2 md:grid-cols-4 gap-4"
+                >
+                    {socials.map((social, i) => (
+                        <motion.a
+                            key={social.name}
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1, duration: 0.5 }}
+                            whileHover={{ y: -4, scale: 1.02 }}
+                            className="flex flex-col items-center justify-center gap-3 p-6 md:p-8 bg-white rounded-2xl border border-charcoal/5 shadow-sm hover:shadow-lg hover:border-tangerine/20 transition-all duration-300 group"
+                        >
+                            <span className="text-3xl">{social.emoji}</span>
+                            <social.icon size={24} className="text-charcoal/30 group-hover:text-tangerine transition-colors" />
+                            <div className="text-center">
+                                <p className="text-xs font-bold text-charcoal">{social.handle}</p>
+                                <p className="text-[10px] text-warm-light uppercase tracking-widest">{social.name}</p>
+                            </div>
+                        </motion.a>
+                    ))}
                 </motion.div>
 
                 {/* Mailing List */}
@@ -94,47 +81,44 @@ export default function ConnectSection() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="flex flex-col justify-center space-y-10"
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="space-y-6 pt-8"
                 >
-                    <div className="space-y-4">
-                        <h3 className="text-2xl font-bold tracking-tight text-black">
-                            Join the Collective
+                    <div className="space-y-2">
+                        <h3 className="text-2xl font-bold text-charcoal">
+                            Join the inner circle ✉️
                         </h3>
-                        <p className="text-base text-black/40 max-w-sm leading-relaxed">
-                            Stay updated—new music, sessions, sauce.
+                        <p className="text-sm text-warm-gray">
+                            New music, behind-the-scenes sauce, and absolutely zero spam. Promise. 🤞
                         </p>
                     </div>
 
-                    <form onSubmit={handleSubscribe} className="max-w-md w-full space-y-4">
-                        <div className="relative">
-                            <input
-                                type="email"
-                                placeholder="your@email.com"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                className="w-full bg-white border-b-2 border-black/10 focus:border-black py-4 text-lg font-bold outline-none transition-colors placeholder:text-black/15"
-                                required
-                            />
-                            <button
-                                type="submit"
-                                className="absolute right-0 bottom-4 text-black/30 hover:text-black transition-colors"
-                                aria-label="Subscribe to newsletter"
-                            >
-                                <ArrowRight size={24} />
-                            </button>
-                        </div>
-
-                        {subscribed && (
-                            <motion.p
-                                initial={{ opacity: 0, y: 5 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="text-sm font-bold text-green-600"
-                            >
-                                You don dey! 🎉 Check your email sha.
-                            </motion.p>
-                        )}
+                    <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                        <input
+                            type="email"
+                            placeholder="your@email.com"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="flex-1 bg-white border-2 border-charcoal/10 focus:border-tangerine rounded-full px-6 py-4 text-sm font-bold outline-none transition-colors placeholder:text-warm-light"
+                            required
+                        />
+                        <button
+                            type="submit"
+                            className="px-8 py-4 bg-tangerine text-white font-bold rounded-full text-sm uppercase tracking-widest hover:bg-rust hover:scale-105 transition-all shadow-md flex items-center justify-center gap-2"
+                        >
+                            Subscribe <ArrowRight size={16} />
+                        </button>
                     </form>
+
+                    {subscribed && (
+                        <motion.p
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="text-sm font-bold text-grass-dark"
+                        >
+                            You don dey! 🎉 Check your email sha.
+                        </motion.p>
+                    )}
                 </motion.div>
             </div>
 
@@ -143,13 +127,13 @@ export default function ConnectSection() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="mt-24 pt-8 border-t border-black/5 text-center space-y-2"
+                className="mt-24 pt-8 border-t border-charcoal/5 text-center space-y-2 max-w-3xl mx-auto"
             >
-                <p className="text-sm text-black/30 font-medium">
-                    &copy; {new Date().getFullYear()} Alexthegemini &bull; Lagos, Nigeria
+                <p className="text-sm text-warm-gray font-medium">
+                    &copy; {new Date().getFullYear()} Alexthegemini &bull; Lagos, Nigeria 🇳🇬
                 </p>
-                <p className="text-xs text-black/20 font-medium">
-                    Part of the Ixximob collective
+                <p className="text-xs text-warm-light italic">
+                    Part of the Ixximob collective &bull; Built with vibes and caffeine ☕
                 </p>
             </motion.footer>
         </section>

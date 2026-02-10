@@ -1,136 +1,130 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { releases, visuals } from "@/lib/content";
-import { ExternalLink } from "lucide-react";
+import { releases } from "@/lib/content";
 
 export default function ContentGrid() {
-    const container = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
-            },
-        },
-    };
-
-    const item = {
-        hidden: { opacity: 0, y: 30 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-    };
-
     return (
-        <section id="content" className="py-24 md:py-32 px-6 md:px-12 bg-[#F8F8F8]">
-            <div className="max-w-6xl mx-auto space-y-16">
+        <section id="music" className="py-28 md:py-36 px-6 md:px-12 bg-peach/40">
+            <div className="max-w-5xl mx-auto space-y-16">
                 {/* Header */}
-                <motion.header
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="space-y-2"
+                    className="text-center space-y-4"
                 >
-                    <h2 className="text-xs font-bold tracking-[0.5em] text-black/30 uppercase">
-                        Archive
-                    </h2>
-                    <h3 className="text-4xl md:text-6xl font-black tracking-tight text-black">
-                        Music & Visuals
-                    </h3>
-                    <p className="text-sm text-black/40 font-medium pt-2">
-                        Selected work (2022—2025)
+                    <p className="text-xs font-bold tracking-[0.5em] text-warm-gray uppercase">
+                        The Catalogue
                     </p>
-                </motion.header>
+                    <h2 className="text-5xl md:text-7xl font-black tracking-tight text-charcoal">
+                        Press play. <br className="hidden md:block" />
+                        <span className="text-tangerine">Thank me later.</span> 🎵
+                    </h2>
+                    <p className="text-base text-warm-gray font-medium max-w-md mx-auto">
+                        Every release has a story. Some are deep. Some are just vibes. All of them slap.
+                    </p>
+                </motion.div>
 
-                {/* Grid */}
+                {/* Featured EP — Full Width Embed */}
                 <motion.div
-                    variants={container}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: "-80px" }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="space-y-6"
                 >
-                    {/* Releases */}
-                    {releases.map((release) => (
-                        <motion.a
-                            key={release.id}
-                            variants={item}
-                            href={release.spotifyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block space-y-4"
-                        >
-                            <div className="aspect-square bg-[#F0F0F0] overflow-hidden border border-black/5 relative">
-                                <img
-                                    src={release.coverUrl}
-                                    alt={release.title}
-                                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                                    loading="lazy"
-                                />
-                                {/* Hover overlay */}
-                                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                    <span className="text-xs font-bold bg-white text-black px-4 py-2 rounded-full shadow-md">
-                                        Stream this rn 🎛️
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-start">
-                                <div className="space-y-0.5">
-                                    <h4 className="text-base font-bold text-black tracking-tight group-hover:text-gray-600 transition-colors">
-                                        {release.title}
-                                    </h4>
-                                    <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-black/30">
-                                        {release.type} {release.year ? `• ${release.year}` : ""}
-                                    </p>
-                                </div>
-                                <ExternalLink
-                                    size={14}
-                                    className="text-black/20 group-hover:text-black/50 transition-colors mt-1"
-                                />
-                            </div>
-                        </motion.a>
-                    ))}
+                    <div className="text-center space-y-2">
+                        <span className="inline-block px-4 py-1.5 bg-tangerine text-white text-xs font-black uppercase tracking-widest rounded-full">
+                            🔥 Latest Drop
+                        </span>
+                        <h3 className="text-2xl md:text-3xl font-black text-charcoal">
+                            O.L.B - V3rt1go
+                        </h3>
+                        <p className="text-sm text-warm-gray italic">
+                            {releases[0].funLine}
+                        </p>
+                    </div>
+                    <div className="max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-xl">
+                        <iframe
+                            src="https://open.spotify.com/embed/album/0ZdMYcvT0IgXKIj4TZEdEk?utm_source=generator&theme=0"
+                            width="100%"
+                            height="352"
+                            frameBorder="0"
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"
+                            className="w-full"
+                            title="O.L.B - V3rt1go on Spotify"
+                        />
+                    </div>
+                </motion.div>
 
-                    {/* Visuals */}
-                    {visuals.map((visual) => (
-                        <motion.a
-                            key={visual.id}
-                            variants={item}
-                            href={visual.linkUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block space-y-4"
-                        >
-                            <div className="aspect-square bg-[#F0F0F0] overflow-hidden border border-black/5 relative">
-                                <img
-                                    src={visual.thumbnailUrl}
-                                    alt={visual.title}
-                                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                                    loading="lazy"
-                                />
-                                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                    <span className="text-xs font-bold bg-white text-black px-4 py-2 rounded-full shadow-md">
-                                        {visual.hoverText || "View"}
+                {/* Other Releases Grid */}
+                <div className="space-y-8">
+                    <h3 className="text-center text-xl font-black text-charcoal uppercase tracking-widest">
+                        More Heat 🔊
+                    </h3>
+
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                    >
+                        {releases.slice(1).map((release, index) => (
+                            <motion.div
+                                key={release.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1, duration: 0.6 }}
+                                className="space-y-4 group"
+                            >
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <h4 className="text-lg font-black text-charcoal">{release.title}</h4>
+                                        <p className="text-xs font-bold text-warm-light uppercase tracking-widest">
+                                            {release.type} • {release.year}
+                                        </p>
+                                    </div>
+                                    <span className="text-xs text-warm-gray italic hidden md:block max-w-[180px] text-right">
+                                        {release.funLine}
                                     </span>
                                 </div>
-                            </div>
-                            <div className="flex justify-between items-start">
-                                <div className="space-y-0.5">
-                                    <h4 className="text-base font-bold text-black tracking-tight group-hover:text-gray-600 transition-colors">
-                                        {visual.title}
-                                    </h4>
-                                    <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-black/30">
-                                        {visual.type}
-                                    </p>
+                                <div className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                                    <iframe
+                                        src={`https://open.spotify.com/embed/album/${release.spotifyEmbedId}?utm_source=generator&theme=0`}
+                                        width="100%"
+                                        height="152"
+                                        frameBorder="0"
+                                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                        loading="lazy"
+                                        className="w-full"
+                                        title={`${release.title} on Spotify`}
+                                    />
                                 </div>
-                                <ExternalLink
-                                    size={14}
-                                    className="text-black/20 group-hover:text-black/50 transition-colors mt-1"
-                                />
-                            </div>
-                        </motion.a>
-                    ))}
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
+
+                {/* CTA */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="text-center pt-8"
+                >
+                    <a
+                        href="https://open.spotify.com/artist/3Wbkuzl1Ha7fBw77p15Lzw"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-10 py-4 bg-charcoal text-cream font-bold rounded-full text-sm uppercase tracking-widest hover:bg-tangerine hover:scale-105 transition-all duration-300 shadow-lg hover-wiggle"
+                    >
+                        See Everything on Spotify →
+                    </a>
                 </motion.div>
             </div>
         </section>
