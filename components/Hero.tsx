@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useCallback } from "react";
-import { ChevronDown } from "lucide-react";
 
 interface HeroProps {
     onEnter: (audioRef: React.RefObject<HTMLAudioElement | null>) => void;
@@ -14,6 +13,7 @@ export default function Hero({ onEnter }: HeroProps) {
 
     const handleEnter = useCallback(() => {
         if (audioRef.current) {
+            audioRef.current.volume = 0.5;
             audioRef.current.play().catch((e) =>
                 console.error("Audio playback blocked:", e)
             );
@@ -23,7 +23,10 @@ export default function Hero({ onEnter }: HeroProps) {
     }, [onEnter]);
 
     return (
-        <div className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <div
+            className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-cream cursor-pointer"
+            onClick={!hasEntered ? handleEnter : undefined}
+        >
             <audio
                 ref={audioRef}
                 src="/audio/Hot Bo1 (w. Yo$hinoya) 123bpm.mp3"
@@ -31,16 +34,8 @@ export default function Hero({ onEnter }: HeroProps) {
                 preload="auto"
             />
 
-            {/* Breathing Gradient Background */}
-            <div className="absolute inset-0 breathing-gradient" />
-
-            {/* Subtle noise texture overlay */}
-            <div
-                className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-                }}
-            />
+            {/* Breathing Gradient Background (Subtle) */}
+            <div className="absolute inset-0 breathing-gradient opacity-10 pointer-events-none" />
 
             {/* Entry Overlay */}
             <AnimatePresence>
@@ -49,13 +44,7 @@ export default function Hero({ onEnter }: HeroProps) {
                         initial={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 1.2 }}
-                        className="fixed inset-0 z-50 flex flex-col items-center justify-center cursor-pointer group"
-                        style={{ background: "rgba(255,248,240,0.85)", backdropFilter: "blur(20px)" }}
-                        onClick={handleEnter}
-                        role="button"
-                        tabIndex={0}
-                        aria-label="Click to enter Gemini World and play music"
-                        onKeyDown={(e) => e.key === "Enter" && handleEnter()}
+                        className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-cream/90 backdrop-blur-xl pointer-events-none"
                     >
                         <motion.div
                             initial={{ scale: 0.95, opacity: 0 }}
@@ -63,30 +52,11 @@ export default function Hero({ onEnter }: HeroProps) {
                             transition={{ duration: 1.5 }}
                             className="text-center px-6"
                         >
-                            <p className="text-sm font-bold tracking-[0.4em] text-warm-gray uppercase mb-6">
-                                Welcome to
-                            </p>
-                            <h1
-                                className="text-7xl md:text-[10rem] font-black tracking-tighter leading-[0.85] mb-8 transition-all duration-500 group-hover:tracking-normal"
-                                style={{ color: "#1A1A1A" }}
-                            >
+                            <h1 className="text-[12vw] leading-[0.85] font-black tracking-tighter text-charcoal mb-4 select-none">
                                 GEMINI
-                                <br />
-                                WORLD
                             </h1>
-                            <p className="text-lg text-warm-gray font-medium max-w-md mx-auto mb-10 leading-relaxed">
-                                Music about vibes, chaos, and everything in between.
-                                <br />Hit the button. Trust me. 😌
-                            </p>
-                            <motion.button
-                                whileHover={{ scale: 1.06 }}
-                                whileTap={{ scale: 0.94 }}
-                                className="px-12 py-5 bg-tangerine text-white font-bold rounded-full text-sm tracking-widest uppercase shadow-xl hover:bg-rust transition-colors duration-300 mb-4"
-                            >
-                                Enter 🎧
-                            </motion.button>
-                            <p className="text-xs text-warm-light italic mt-4">
-                                audio will play — you&apos;ve been warned 🔊
+                            <p className="text-xs font-mono text-charcoal/60 uppercase tracking-widest animate-pulse">
+                                [ Click to Enter ]
                             </p>
                         </motion.div>
                     </motion.div>
@@ -95,65 +65,43 @@ export default function Hero({ onEnter }: HeroProps) {
 
             {/* Main Hero Content */}
             <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={hasEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 1.5, delay: 0.3 }}
-                className="text-center z-10 px-6"
+                initial={{ opacity: 0 }}
+                animate={hasEntered ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ duration: 1.5, delay: 0.2 }}
+                className="relative z-10 w-full h-full flex flex-col items-center justify-center"
             >
-                <h1 className="text-8xl md:text-[12rem] font-black leading-[0.82] text-white mb-8 drop-shadow-2xl">
-                    ALEX THE
-                    <br />
+                <h1 className="text-[19vw] leading-[0.75] font-black tracking-tighter text-charcoal select-none mix-blend-multiply">
+                    ALEX
+                </h1>
+
+                <div className="flex items-center justify-center w-full relative">
+                    <span className="hidden md:block absolute left-12 top-1/2 -translate-y-1/2 text-xs font-mono text-tangerine uppercase tracking-widest -rotate-90 origin-center whitespace-nowrap">
+                        Est. 2023 &mdash; Lagos
+                    </span>
+
+                    <h1 className="text-[19vw] leading-[0.75] font-black tracking-tighter text-tangerine select-none mix-blend-multiply hover:text-charcoal transition-colors duration-500">
+                        THE
+                    </h1>
+
+                    <span className="hidden md:block absolute right-12 top-1/2 -translate-y-1/2 text-xs font-mono text-tangerine uppercase tracking-widest rotate-90 origin-center whitespace-nowrap">
+                        Producer / Artist
+                    </span>
+                </div>
+
+                <h1 className="text-[19vw] leading-[0.75] font-black tracking-tighter text-charcoal select-none mix-blend-multiply">
                     GEMINI
                 </h1>
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={hasEntered ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ delay: 0.8, duration: 1 }}
-                >
-                    <p className="text-xl md:text-2xl font-bold text-white/90 mb-3 drop-shadow-lg">
-                        Afrobeats-rooted. Genre-fluid. Probably vibing rn.
-                    </p>
-                    <p className="text-sm text-white/70 font-medium mb-2 drop-shadow-md">
-                        Music Producer • Beatmaker • Professional Overthinker
-                    </p>
-                    <p className="text-xs text-white/50 drop-shadow-md">
-                        Lagos, Nigeria 🇳🇬
-                    </p>
-                </motion.div>
-
-                {/* Now Playing */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={hasEntered ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ delay: 1.5 }}
-                    className="flex items-center justify-center gap-2 mt-10"
-                >
-                    <div className="flex items-end gap-[3px] h-5">
-                        {[...Array(4)].map((_, i) => (
-                            <div
-                                key={i}
-                                className="w-[3px] bg-white rounded-full animate-bar"
-                                style={{ animationDelay: `${i * 0.15}s` }}
-                            />
-                        ))}
-                    </div>
-                    <span className="text-xs font-bold tracking-widest text-white/60 uppercase">
-                        HOT BO1 (Unreleased)
-                    </span>
-                </motion.div>
             </motion.div>
 
-            {/* Scroll hint */}
+            {/* Footer Ticker */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={hasEntered ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ delay: 2 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+                transition={{ delay: 1 }}
+                className="absolute bottom-8 w-full flex justify-between px-8 md:px-12 uppercase text-[10px] md:text-xs font-bold tracking-[0.2em] text-charcoal/40 pointer-events-none"
             >
-                <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-bold">
-                    Scroll down abeg
-                </span>
-                <ChevronDown className="text-white/40 animate-bounce w-5 h-5" />
+                <span>Scroll Down</span>
+                <span>V2.3 Studio Edition</span>
             </motion.div>
         </div>
     );
