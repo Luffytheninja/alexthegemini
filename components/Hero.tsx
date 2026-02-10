@@ -68,7 +68,7 @@ export default function Hero({ onEnter }: HeroProps) {
                 initial={{ opacity: 0 }}
                 animate={hasEntered ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 1.5, delay: 0.2 }}
-                className="relative z-10 w-full h-full flex flex-col items-center justify-center -mt-12 md:mt-0 px-[5vw]"
+                className="relative z-10 w-full h-full flex flex-col items-center justify-center -mt-12 md:mt-0 px-6 md:px-[5vw]"
             >
                 <h1 className="text-[clamp(4rem,17vw,16rem)] leading-[0.75] font-black tracking-tighter text-charcoal select-none mix-blend-multiply">
                     ALEX
@@ -98,7 +98,7 @@ export default function Hero({ onEnter }: HeroProps) {
                 initial={{ opacity: 0 }}
                 animate={hasEntered ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ delay: 1 }}
-                className="absolute bottom-12 w-full flex justify-between px-[5vw] uppercase text-[10px] md:text-sm font-bold tracking-[0.2em] text-charcoal/40 pointer-events-none"
+                className="absolute bottom-12 w-full flex justify-between px-6 md:px-[5vw] uppercase text-[10px] md:text-sm font-bold tracking-[0.2em] text-charcoal/40 pointer-events-none"
             >
                 <span>Scroll Down</span>
                 <span>V2.3 Studio Edition</span>

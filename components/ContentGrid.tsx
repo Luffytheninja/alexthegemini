@@ -15,7 +15,7 @@ export default function ContentGrid() {
 
     return (
         <section id="music" className="py-[15vh] md:py-[25vh] bg-white w-full relative z-10">
-            <div className="w-full max-w-[1440px] px-[5vw] mx-auto relative">
+            <div className="w-full max-w-[1440px] px-6 md:px-[5vw] mx-auto relative">
 
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-40 md:mb-48 border-b border-charcoal/10 pb-16">

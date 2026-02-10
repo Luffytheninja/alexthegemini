@@ -24,7 +24,7 @@ export default function ConnectSection() {
 
     return (
         <section id="connect" className="pt-[15vh] pb-[30vh] md:pb-[25vh] bg-charcoal text-white w-full">
-            <div className="w-full max-w-[1440px] px-[5vw] mx-auto">
+            <div className="w-full max-w-[1440px] px-6 md:px-[5vw] mx-auto">
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-48 mb-[15vh]">
                     {/* Newsletter Column */}
