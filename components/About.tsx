@@ -3,7 +3,7 @@
 export default function About() {
     return (
         <section id="about" className="py-[15vh] md:py-[25vh] bg-white w-full">
-            <div className="w-full max-w-[1440px] px-6 md:px-[5vw] mx-auto grid grid-cols-1 md:grid-cols-12 gap-20 md:gap-32">
+            <div className="w-full px-8 md:px-[12vw] mx-auto grid grid-cols-1 md:grid-cols-12 gap-24 md:gap-40">
 
                 {/* Left Column: Title & Stats */}
                 <div className="md:col-span-4 space-y-20 md:space-y-40 sticky top-24 h-fit">

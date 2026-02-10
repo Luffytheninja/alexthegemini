@@ -15,7 +15,7 @@ export default function ContentGrid() {
 
     return (
         <section id="music" className="py-[15vh] md:py-[25vh] bg-white w-full relative z-10">
-            <div className="w-full max-w-[1440px] px-6 md:px-[5vw] mx-auto relative">
+            <div className="w-full px-8 md:px-[12vw] mx-auto relative">
 
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-40 md:mb-48 border-b border-charcoal/10 pb-16">
@@ -106,7 +106,7 @@ export default function ContentGrid() {
                                         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                                         className="overflow-hidden bg-smoke"
                                     >
-                                        <div className="py-16 md:py-24 px-4 md:px-0 max-w-[1440px] mx-auto flex flex-col md:flex-row gap-12 md:gap-32">
+                                        <div className="py-16 md:py-24 px-4 md:px-0 mx-auto flex flex-col md:flex-row gap-12 md:gap-40">
                                             {/* Spacer to align with text */}
                                             <div className="hidden md:block w-[10%]" />
 
