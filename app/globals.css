@@ -1,15 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  --color-accent-gray: #222222;
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
 
 :root {
-  --bg-primary: #000000;
-  --text-primary: #FFFFFF;
-  --accent-gray: #222222;
+  /* Lagos Light Palette */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F8F8;
+  --bg-tertiary: #F0F0F0;
+  --text-primary: #000000;
+  --text-secondary: #404040;
+  --text-tertiary: #808080;
+  --text-quaternary: #A0A0A0;
+  --accent: #000000;
+  --accent-hover: #333333;
+  --border-light: rgba(0, 0, 0, 0.05);
+  --border-medium: rgba(0, 0, 0, 0.1);
+  --border-dark: rgba(0, 0, 0, 0.2);
+
+  /* Grass Shader Colors */
+  --grass-primary: #7CB342;
+  --grass-secondary: #558B2F;
+  --grass-highlight: #9CCC65;
+  --grass-shadow: #33691E;
+  --grass-ground: #8D6E63;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 * {
@@ -40,38 +63,25 @@ h6 {
   letter-spacing: -0.02em;
 }
 
-/* Custom Scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: #F8F8F8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #222;
+  background: #ccc;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #333;
+  background: #999;
 }
 
-/* Utilities */
-.glass-effect {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.text-stroke {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
-  color: transparent;
-}
-
-/* Animations */
+/* Audio bars animation */
 @keyframes bar-grow {
 
   0%,
@@ -80,10 +90,26 @@ h6 {
   }
 
   50% {
-    height: 16px;
+    height: 18px;
   }
 }
 
 .animate-bar {
-  animation: bar-grow 1s ease-in-out infinite;
+  animation: bar-grow 0.9s ease-in-out infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }

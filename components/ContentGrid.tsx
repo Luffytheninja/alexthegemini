@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { releases, videos, visuals } from "@/lib/content";
-import { Play, ExternalLink, ArrowUpRight } from "lucide-react";
+import { releases, visuals } from "@/lib/content";
+import { ExternalLink } from "lucide-react";
 
 export default function ContentGrid() {
     const container = {
@@ -11,121 +11,126 @@ export default function ContentGrid() {
             opacity: 1,
             transition: {
                 staggerChildren: 0.1,
-                delayChildren: 0.2
-            }
-        }
+                delayChildren: 0.2,
+            },
+        },
     };
 
     const item = {
-        hidden: { opacity: 0, y: 40 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+        hidden: { opacity: 0, y: 30 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
     };
 
     return (
-        <section id="content" className="py-24 px-6 md:px-12 bg-black">
-            <div className="max-w-7xl mx-auto space-y-16">
-
-                <header className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-12">
-                    <div className="space-y-2">
-                        <h2 className="text-xs font-bold tracking-[0.5em] text-white/30 uppercase">Archive</h2>
-                        <h1 className="text-5xl md:text-7xl font-black">MUSIC & VISUALS</h1>
-                    </div>
-                    <p className="text-sm font-medium text-white/40 max-w-xs md:text-right">
-                        Selected work from Gemini World Archive (2020—2025).
+        <section id="content" className="py-24 md:py-32 px-6 md:px-12 bg-[#F8F8F8]">
+            <div className="max-w-6xl mx-auto space-y-16">
+                {/* Header */}
+                <motion.header
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="space-y-2"
+                >
+                    <h2 className="text-xs font-bold tracking-[0.5em] text-black/30 uppercase">
+                        Archive
+                    </h2>
+                    <h3 className="text-4xl md:text-6xl font-black tracking-tight text-black">
+                        Music & Visuals
+                    </h3>
+                    <p className="text-sm text-black/40 font-medium pt-2">
+                        Selected work (2022—2025)
                     </p>
-                </header>
+                </motion.header>
 
+                {/* Grid */}
                 <motion.div
                     variants={container}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-80px" }}
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                 >
                     {/* Releases */}
                     {releases.map((release) => (
-                        <motion.div
+                        <motion.a
                             key={release.id}
                             variants={item}
-                            className="group relative space-y-4"
+                            href={release.spotifyUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block space-y-4"
                         >
-                            <div className="aspect-square bg-white/5 overflow-hidden rounded-sm relative">
+                            <div className="aspect-square bg-[#F0F0F0] overflow-hidden border border-black/5 relative">
                                 <img
                                     src={release.coverUrl}
                                     alt={release.title}
-                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                                    loading="lazy"
                                 />
-                                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-                                    <a href={release.spotifyUrl} target="_blank" className="p-3 bg-white text-black rounded-full hover:scale-110 transition-transform">
-                                        <Play size={20} fill="currentColor" />
-                                    </a>
-                                    <a href={release.appleUrl} target="_blank" className="p-3 border border-white rounded-full hover:bg-white hover:text-black transition-all">
-                                        <ArrowUpRight size={20} />
-                                    </a>
+                                {/* Hover overlay */}
+                                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span className="text-xs font-bold bg-white text-black px-4 py-2 rounded-full shadow-md">
+                                        Stream this rn 🎛️
+                                    </span>
                                 </div>
                             </div>
-                            <div className="flex justify-between items-start pt-2">
-                                <div className="space-y-1">
-                                    <h4 className="text-lg font-bold tracking-tight">{release.title}</h4>
-                                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">{release.type}</p>
+                            <div className="flex justify-between items-start">
+                                <div className="space-y-0.5">
+                                    <h4 className="text-base font-bold text-black tracking-tight group-hover:text-gray-600 transition-colors">
+                                        {release.title}
+                                    </h4>
+                                    <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-black/30">
+                                        {release.type} {release.year ? `• ${release.year}` : ""}
+                                    </p>
                                 </div>
-                                <button className="opacity-0 group-hover:opacity-100 transition-opacity text-white/40 uppercase text-[9px] font-black tracking-widest pt-1.5 flex items-center gap-1">
-                                    Stream <ExternalLink size={10} />
-                                </button>
-                            </div>
-                        </motion.div>
-                    ))}
-
-                    {/* Videos Placeholder (One featured) */}
-                    {videos.map((video) => (
-                        <motion.div
-                            key={video.id}
-                            variants={item}
-                            className="group relative space-y-4 lg:col-span-2"
-                        >
-                            <div
-                                className="aspect-video bg-white/5 overflow-hidden rounded-sm relative cursor-pointer"
-                                onClick={() => window.open(`https://youtube.com/watch?v=${video.youtubeId}`, '_blank')}
-                            >
-                                <img
-                                    src={video.thumbnailUrl}
-                                    alt={video.title}
-                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                                <ExternalLink
+                                    size={14}
+                                    className="text-black/20 group-hover:text-black/50 transition-colors mt-1"
                                 />
-                                <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors flex items-center justify-center">
-                                    <div className="w-16 h-16 border border-white/30 rounded-full flex items-center justify-center text-white backdrop-blur-sm group-hover:scale-110 transition-transform">
-                                        <Play size={24} fill="currentColor" />
-                                    </div>
-                                </div>
                             </div>
-                            <div className="space-y-1">
-                                <h4 className="text-lg font-bold tracking-tight">{video.title}</h4>
-                                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">Official Music Video</p>
-                            </div>
-                        </motion.div>
+                        </motion.a>
                     ))}
 
                     {/* Visuals */}
                     {visuals.map((visual) => (
-                        <motion.div
+                        <motion.a
                             key={visual.id}
                             variants={item}
-                            className="group relative space-y-4"
+                            href={visual.linkUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block space-y-4"
                         >
-                            <div className="aspect-[4/5] bg-white/5 overflow-hidden rounded-sm relative">
+                            <div className="aspect-square bg-[#F0F0F0] overflow-hidden border border-black/5 relative">
                                 <img
-                                    src={visual.imageUrl}
+                                    src={visual.thumbnailUrl}
                                     alt={visual.title}
-                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                                    loading="lazy"
+                                />
+                                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span className="text-xs font-bold bg-white text-black px-4 py-2 rounded-full shadow-md">
+                                        {visual.hoverText || "View"}
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="flex justify-between items-start">
+                                <div className="space-y-0.5">
+                                    <h4 className="text-base font-bold text-black tracking-tight group-hover:text-gray-600 transition-colors">
+                                        {visual.title}
+                                    </h4>
+                                    <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-black/30">
+                                        {visual.type}
+                                    </p>
+                                </div>
+                                <ExternalLink
+                                    size={14}
+                                    className="text-black/20 group-hover:text-black/50 transition-colors mt-1"
                                 />
                             </div>
-                            <div className="space-y-2">
-                                <h4 className="text-lg font-bold tracking-tight">{visual.title}</h4>
-                                <p className="text-sm text-white/40 leading-relaxed italic">&ldquo;{visual.description}&rdquo;</p>
-                            </div>
-                        </motion.div>
+                        </motion.a>
                     ))}
-
                 </motion.div>
             </div>
         </section>

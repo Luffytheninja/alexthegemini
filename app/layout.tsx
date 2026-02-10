@@ -13,19 +13,20 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Alexthegemini - Alternative Afrobeat Artist | Lagos",
-  description: "Visual & audio artist blending experimental rhythms with high-fidelity visual storytelling. Experience Gemini World.",
+  title: "Alexthegemini - Music Producer, Beatmaker, Artist | Lagos",
+  description: "Afrobeats-rooted. Genre-fluid. Nigerian music producer based in Lagos, part of the alté scene.",
   openGraph: {
-    title: "Alexthegemini - Alternative Afrobeat",
-    description: "Explore the audio-visual world of Alexthegemini.",
+    title: "Alexthegemini",
+    description: "Music Producer • Beatmaker • Artist",
+    url: "https://alexthegemini.vercel.app",
     type: "website",
     locale: "en_NG",
   },
   twitter: {
     card: "summary_large_image",
     title: "Alexthegemini",
-    description: "Lagos-based Alternative Afrobeat & Visual Artist",
-  }
+    description: "Afrobeats-rooted. Genre-fluid. Lagos.",
+  },
 };
 
 export default function RootLayout({
