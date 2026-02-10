@@ -19,19 +19,7 @@ export default function Home() {
       <Hero onEnter={handleEnter} />
       {audioRef && <AudioControls audioRef={audioRef} />}
       <About />
-
-      {/* Section Divider */}
-      <div className="w-full mx-auto px-8 md:px-[12vw] py-[8vh]">
-        <div className="w-full h-px bg-charcoal/10" />
-      </div>
-
       <ContentGrid />
-
-      {/* Section Divider */}
-      <div className="w-full mx-auto px-8 md:px-[12vw] py-[8vh]">
-        <div className="w-full h-px bg-charcoal/10" />
-      </div>
-
       <ConnectSection />
     </main>
   );
