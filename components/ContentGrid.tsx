@@ -1,9 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import { releases } from "@/lib/content";
-import { useState } from "react";
-import { Plus, Minus, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function ContentGrid() {
     return (
@@ -61,7 +59,5 @@ export default function ContentGrid() {
                 </div>
             </div>
         </section>
-    );
-}
     );
 }

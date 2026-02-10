@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 
 export default function ConnectSection() {
@@ -78,7 +77,5 @@ export default function ConnectSection() {
                 </div>
             </div>
         </section>
-    );
-}
     );
 }

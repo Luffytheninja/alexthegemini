@@ -1,14 +1,12 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef, useCallback } from "react";
+import { useRef, useCallback } from "react";
 
 interface HeroProps {
     onEnter: (audioRef: React.RefObject<HTMLAudioElement | null>) => void;
 }
 
 export default function Hero({ onEnter }: HeroProps) {
-    const [hasEntered, setHasEntered] = useState(false);
     const audioRef = useRef<HTMLAudioElement>(null);
 
     const handleEnter = useCallback(() => {
@@ -82,7 +80,5 @@ export default function Hero({ onEnter }: HeroProps) {
             {/* Subtle Gradient Entry (Optional, keeping for depth) */}
             <div className="absolute inset-0 breathing-gradient opacity-10 pointer-events-none" />
         </section>
-    );
-}
     );
 }
