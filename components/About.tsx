@@ -1,15 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useState } from "react";
-
 export default function About() {
     return (
-        <section id="about" className="py-40 md:py-64 bg-white w-full border-t border-charcoal/10">
-            <div className="w-full max-w-[1440px] px-6 md:px-12 mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-32">
+        <section id="about" className="py-[15vh] md:py-[25vh] bg-white w-full">
+            <div className="w-full max-w-[1440px] px-6 md:px-16 mx-auto grid grid-cols-1 md:grid-cols-12 gap-20 md:gap-48">
 
                 {/* Left Column: Title & Stats */}
-                <div className="md:col-span-4 space-y-16 md:space-y-32 sticky top-12 h-fit">
+                <div className="md:col-span-4 space-y-20 md:space-y-40 sticky top-24 h-fit">
                     <div className="space-y-6">
                         <span className="text-sm font-bold tracking-[0.2em] uppercase text-charcoal/50 block">
                             Profile
@@ -21,8 +18,8 @@ export default function About() {
                         </h2>
                     </div>
 
-                    <div className="hidden md:block space-y-10">
-                        <div className="border-t border-charcoal/10 pt-6">
+                    <div className="hidden md:block space-y-16">
+                        <div className="border-t border-charcoal/10 pt-8">
                             <p className="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-2">Based</p>
                             <p className="text-2xl font-bold text-charcoal">Lagos, Nigeria</p>
                         </div>
@@ -39,7 +36,7 @@ export default function About() {
 
                 {/* Right Column: Editorial Text */}
                 <div className="md:col-span-1" /> {/* Spacer */}
-                <div className="md:col-span-7 space-y-16 text-xl md:text-3xl leading-[1.5] text-charcoal font-medium tracking-tight">
+                <div className="md:col-span-7 space-y-20 text-xl md:text-3xl leading-[1.6] text-charcoal font-medium tracking-tight">
                     <p className="indent-[4rem] md:indent-[8rem]">
                         It starts with the feeling. Rooted in Afrobeats but allergic to staying in one lane. The sound bounces between soul-sampled instrumentals, melodic trap, underground rage, and experimental loop-chopping.
                     </p>

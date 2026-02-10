@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Instagram, Twitter, Music, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 
 export default function ConnectSection() {
@@ -24,10 +23,10 @@ export default function ConnectSection() {
     ];
 
     return (
-        <section id="connect" className="py-40 md:py-64 bg-charcoal text-white w-full">
-            <div className="w-full max-w-[1440px] px-6 md:px-12 mx-auto">
+        <section id="connect" className="py-[15vh] md:py-[25vh] bg-charcoal text-white w-full">
+            <div className="w-full max-w-[1440px] px-6 md:px-16 mx-auto">
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-48 mb-48">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-48 mb-[15vh]">
                     {/* Newsletter Column */}
                     <div className="space-y-12">
                         <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none">
@@ -64,7 +63,7 @@ export default function ConnectSection() {
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-between py-8 border-b border-white/10 hover:border-white group transition-colors"
+                                    className="flex items-center justify-between py-10 md:py-12 border-b border-white/10 hover:border-white group transition-colors"
                                 >
                                     <span className="text-3xl md:text-5xl font-black uppercase text-white/50 group-hover:text-white transition-colors">
                                         {social.name}

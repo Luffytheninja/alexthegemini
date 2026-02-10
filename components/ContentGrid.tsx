@@ -14,11 +14,11 @@ export default function ContentGrid() {
     };
 
     return (
-        <section id="music" className="py-40 md:py-64 bg-white w-full relative z-10">
-            <div className="w-full max-w-[1440px] px-6 md:px-12 mx-auto relative">
+        <section id="music" className="py-[15vh] md:py-[25vh] bg-white w-full relative z-10">
+            <div className="w-full max-w-[1440px] px-6 md:px-16 mx-auto relative">
 
                 {/* Header */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-32 border-b border-charcoal/10 pb-12">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-40 md:mb-48 border-b border-charcoal/10 pb-16">
                     <div className="space-y-6">
                         <span className="text-sm font-bold tracking-[0.2em] uppercase text-charcoal/50">
                             Selected Works (2023 — 2025)
@@ -47,7 +47,7 @@ export default function ContentGrid() {
                             {/* Row Header */}
                             <button
                                 onClick={() => toggle(release.id)}
-                                className="w-full py-12 md:py-20 flex flex-col md:flex-row items-start md:items-baseline justify-between text-left outline-none"
+                                className="w-full py-16 md:py-28 flex flex-col md:flex-row items-start md:items-baseline justify-between text-left outline-none"
                             >
                                 <div className="flex items-baseline gap-12 md:gap-24 w-full md:w-auto">
                                     <span className="text-sm font-mono text-charcoal/30 w-12 hidden md:block">
@@ -145,7 +145,7 @@ export default function ContentGrid() {
                 </div>
 
                 {/* Big Footer Link */}
-                <div className="mt-32 md:mt-48 text-center">
+                <div className="mt-48 md:mt-64 text-center">
                     <a
                         href="https://open.spotify.com/artist/3Wbkuzl1Ha7fBw77p15Lzw"
                         target="_blank"

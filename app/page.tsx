@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState } from "react";
 import Hero from "@/components/Hero";
 import AudioControls from "@/components/AudioControls";
@@ -16,11 +15,23 @@ export default function Home() {
   };
 
   return (
-    <main className="bg-cream w-full min-h-screen selection:bg-tangerine selection:text-white overflow-x-hidden">
+    <main className="bg-white w-full min-h-screen selection:bg-charcoal selection:text-white overflow-x-hidden">
       <Hero onEnter={handleEnter} />
       {audioRef && <AudioControls audioRef={audioRef} />}
       <About />
+
+      {/* Section Divider */}
+      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-16 py-[8vh]">
+        <div className="w-full h-px bg-charcoal/10" />
+      </div>
+
       <ContentGrid />
+
+      {/* Section Divider */}
+      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-16 py-[8vh]">
+        <div className="w-full h-px bg-charcoal/10" />
+      </div>
+
       <ConnectSection />
     </main>
   );
