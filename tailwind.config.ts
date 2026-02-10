@@ -8,8 +8,17 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                background: "var(--background)",
-                foreground: "var(--foreground)",
+                white: '#FFFFFF',
+                charcoal: '#1A1A1A',
+                smoke: '#F5F5F5',
+            },
+            fontFamily: {
+                body: ['var(--font-body)'],
+                heading: ['var(--font-heading)'],
+            },
+            letterSpacing: {
+                tighter: '-0.02em',
+                widest: '0.1em',
             },
         },
     },

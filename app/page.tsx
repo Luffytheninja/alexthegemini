@@ -15,7 +15,7 @@ export default function Home() {
   };
 
   return (
-    <main className="bg-white w-full min-h-screen selection:bg-charcoal selection:text-white overflow-x-hidden">
+    <main className="bg-white w-full min-h-screen selection:bg-charcoal selection:text-white">
       <Hero onEnter={handleEnter} />
       {audioRef && <AudioControls audioRef={audioRef} />}
       <About />

@@ -22,8 +22,8 @@ export default function ConnectSection() {
     ];
 
     return (
-        <section id="connect" className="py-24 px-6 md:px-12 bg-charcoal text-white w-full">
-            <div className="max-w-7xl mx-auto">
+        <section id="connect" className="bg-charcoal text-white section-padding container-padding">
+            <div className="container-max">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-48 border-b border-white/10 pb-24 mb-12">
                     {/* Newsletter Column */}
                     <div className="space-y-12">
