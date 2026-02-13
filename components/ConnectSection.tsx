@@ -39,12 +39,12 @@ export default function ConnectSection() {
                                 placeholder="your@email.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="w-full bg-transparent border-b border-white/20 pb-2 outline-none text-lg font-bold placeholder:text-white/10 focus:border-white transition-colors"
+                                className="w-full bg-transparent border-b border-white/20 pb-2 outline-none text-lg font-bold placeholder:text-white/10 focus:border-coral-blue transition-colors"
                                 required
                             />
                             <button
                                 type="submit"
-                                className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 text-left hover:text-white transition-colors"
+                                className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 text-left hover:text-coral-blue transition-colors"
                             >
                                 Subscribe →
                             </button>

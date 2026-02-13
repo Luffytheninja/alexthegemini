@@ -7,6 +7,7 @@ import About from "@/components/About";
 import ContentGrid from "@/components/ContentGrid";
 import ConnectSection from "@/components/ConnectSection";
 import LoadingScreen from "@/components/LoadingScreen";
+import TopNav from "@/components/TopNav";
 
 export default function Home() {
   const [isEntered, setIsEntered] = useState(false);
@@ -35,7 +36,8 @@ export default function Home() {
   }
 
   return (
-    <main className="bg-white w-full min-h-screen selection:bg-charcoal selection:text-white">
+    <main className="bg-white w-full min-h-screen selection:bg-coral-blue selection:text-white">
+      <TopNav />
       <Hero onEnter={handleManualEnter} />
       {audioRef && <AudioControls audioRef={audioRef} />}
       <About />
