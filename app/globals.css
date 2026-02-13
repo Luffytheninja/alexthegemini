@@ -6,6 +6,7 @@
 
   --color-charcoal: #1A1A1A;
   --color-smoke: #F5F5F5;
+  --color-coral-blue: #3E9CB8;
 
   --letter-spacing-tighter: -0.02em;
   --letter-spacing-widest: 0.1em;
@@ -76,12 +77,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CCCCCC;
+  background: #9fd1df;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #999999;
+  background: #3E9CB8;
 }
 
 /* ═══ Audio bars ═══ */

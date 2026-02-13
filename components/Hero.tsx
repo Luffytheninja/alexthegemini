@@ -18,17 +18,8 @@ export default function Hero({ onEnter }: HeroProps) {
     };
 
     return (
-        <section className="min-h-screen flex flex-col justify-between pt-24 md:pt-32 lg:pt-48 pb-16 md:pb-24 container-padding">
+        <section className="min-h-screen flex flex-col justify-between pt-32 md:pt-36 lg:pt-52 pb-16 md:pb-24 container-padding">
             <div className="container-max h-full flex flex-col justify-between">
-                {/* Navigation */}
-                <nav className="flex items-center justify-between mb-16 md:mb-24">
-                    <div className="flex-1 h-px bg-charcoal/10" />
-                    <button className="px-6 md:px-8 py-2 mx-4 md:mx-8 border border-charcoal hover:bg-charcoal hover:text-white transition-colors duration-300 text-sm md:text-base tracking-wide">
-                        BOOK ME
-                    </button>
-                    <div className="flex-1 h-px bg-charcoal/10" />
-                </nav>
-
                 {/* Hero Title */}
                 <div className="flex-1 flex items-center justify-center">
                     <motion.div
@@ -52,7 +43,7 @@ export default function Hero({ onEnter }: HeroProps) {
                     </p>
                     <button
                         onClick={handleListenNow}
-                        className="px-8 md:px-12 py-3 md:py-4 bg-charcoal text-white hover:bg-charcoal/90 transition-all duration-300 text-sm md:text-base tracking-wide"
+                        className="px-8 md:px-12 py-3 md:py-4 bg-coral-blue text-white hover:bg-coral-blue/90 transition-all duration-300 text-sm md:text-base tracking-wide"
                     >
                         LISTEN NOW
                     </button>

@@ -7,7 +7,7 @@ export default function About() {
         <Section id="about" className="bg-white">
             {/* Section Header */}
             <h2 className="text-[clamp(3rem,8vw,8rem)] font-black text-charcoal tracking-tighter leading-[0.8] mb-24 md:mb-32 uppercase">
-                Artist<br />Profile
+                Artist<br /><span className="text-coral-blue">Profile</span>
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24">

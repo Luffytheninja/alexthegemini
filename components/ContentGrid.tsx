@@ -41,7 +41,7 @@ export default function ContentGrid() {
                                 <span className="text-[10px] md:text-xs font-bold text-charcoal/20 hidden sm:block">
                                     {release.year}
                                 </span>
-                                <ArrowUpRight className="w-5 h-5 md:w-8 md:h-8 text-charcoal/20 group-hover:text-charcoal transition-colors" />
+                                <ArrowUpRight className="w-5 h-5 md:w-8 md:h-8 text-charcoal/20 group-hover:text-coral-blue transition-colors" />
                             </div>
                         </div>
                     </a>
@@ -54,7 +54,7 @@ export default function ContentGrid() {
                     href="https://open.spotify.com/artist/3Wbkuzl1Ha7fBw77p15Lzw"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-4 text-xs md:text-lg font-black uppercase tracking-tight text-charcoal hover:opacity-50 transition-opacity"
+                    className="group inline-flex items-center gap-4 text-xs md:text-lg font-black uppercase tracking-tight text-charcoal hover:text-coral-blue transition-colors"
                 >
                     View Full Index on Spotify
                     <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
