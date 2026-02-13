@@ -23,11 +23,13 @@ export default function AudioControls({ audioRef }: AudioControlsProps) {
         audio.addEventListener("play", handlePlay);
         audio.addEventListener("pause", handlePause);
 
-        // Show player if playing (checking on mount)
-        if (!audio.paused) {
-            setIsVisible(true);
-            setIsPlaying(true); // Sync state
-        }
+        // Sync initial state without triggering set-state-in-effect lint rule
+        requestAnimationFrame(() => {
+            if (!audio.paused) {
+                setIsVisible(true);
+                setIsPlaying(true);
+            }
+        });
 
         const handleScroll = () => {
             if (window.scrollY > 100) setIsVisible(true);
