@@ -4,17 +4,23 @@
   --font-heading: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
 
-  --color-charcoal: #1A1A1A;
-  --color-smoke: #F5F5F5;
+  --color-charcoal: #0A0A0A;
+  --color-card: #141414;
+  --color-card-hover: #1A1A1A;
+  --color-accent: #FFB800;
+  --color-smoke: #F5F5F0;
 
   --letter-spacing-tighter: -0.02em;
   --letter-spacing-widest: 0.1em;
+  
+  --radius-bento: 24px;
 }
 
 @layer base {
   :root {
-    --background: #FFFFFF;
-    --foreground: #1A1A1A;
+    --background: #0A0A0A;
+    --foreground: #F5F5F0;
+    --accent: #FFB800;
   }
 
   body {
@@ -23,122 +29,74 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* iPhone optimizations */
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-top: env(safe-area-inset-top);
+    min-height: -webkit-fill-available;
+  }
+
+  html {
+    height: -webkit-fill-available;
   }
 
   * {
-    border-color: var(--color-charcoal);
+    border-color: rgba(255, 255, 255, 0.06);
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
-@utility container-padding {
-  @apply px-6 md:px-12 lg:px-16;
+@utility bento-grid {
+  display: grid;
+  gap: 12px;
+  @apply md:gap-4 lg:gap-5;
 }
 
-@utility container-max {
-  @apply max-w-7xl mx-auto;
-}
-
-@utility section-padding {
-  @apply py-16 md:py-24;
-}
-
-/* ═══ B&W Breathing Gradient ═══ */
-@keyframes gradient-breathe {
-
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
+@utility bento-card {
+  @apply bg-card border border-white/5 rounded-[24px] overflow-hidden transition-all duration-300;
+  &:hover {
+    @apply bg-card-hover border-white/10 shadow-[0_0_20px_rgba(255,184,0,0.05)];
   }
 }
 
-.breathing-gradient {
-  background: linear-gradient(270deg,
-      #FFFFFF,
-      #F0F0F0,
-      #E0E0E0,
-      #F5F5F5,
-      #FFFFFF);
-  background-size: 400% 400%;
-  animation: gradient-breathe 15s ease-in-out infinite;
+@utility iPhone-safe-padding {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/* ═══ Audio Visualizer ═══ */
+@keyframes visualizer {
+  0%, 100% { height: 4px; }
+  50% { height: 20px; }
+}
+
+.visualizer-bar {
+  @apply w-1 bg-accent rounded-full;
+  animation: visualizer 0.8s ease-in-out infinite;
 }
 
 /* ═══ Scrollbar ═══ */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FFFFFF;
+  background: #0A0A0A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CCCCCC;
+  background: #333333;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #999999;
-}
-
-/* ═══ Audio bars ═══ */
-@keyframes bar-grow {
-
-  0%,
-  100% {
-    height: 3px;
-  }
-
-  50% {
-    height: 16px;
-  }
-}
-
-.animate-bar {
-  animation: bar-grow 0.9s ease-in-out infinite;
-}
-
-/* ═══ Fun wiggle ═══ */
-@keyframes wiggle {
-
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-
-  25% {
-    transform: rotate(-2deg);
-  }
-
-  75% {
-    transform: rotate(2deg);
-  }
-}
-
-.hover-wiggle:hover {
-  animation: wiggle 0.3s ease-in-out;
+  background: #444444;
 }
 
 /* ═══ Reduced motion ═══ */
 @media (prefers-reduced-motion: reduce) {
-
-  *,
-  ::before,
-  ::after {
+  *, ::before, ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  html {
-    scroll-behavior: auto;
-  }
-
-  .breathing-gradient {
-    animation: none;
-    background-size: 100% 100%;
   }
 }
